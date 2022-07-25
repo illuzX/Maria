@@ -1,22 +1,21 @@
 class script(object):
     START_TXT = """𝙷𝙴𝙻𝙾 {},
 𝙼𝚈 𝙽𝙰𝙼𝙴 𝙸𝚂 <a href=https://t.me/{}>{}</a>, 𝙸 𝙲𝙰𝙽 𝙿𝚁𝙾𝚅𝙸𝙳𝙴 𝙼𝙾𝚅𝙸𝙴𝚂, 𝙹𝚄𝚂𝚃 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 𝙰𝙽𝙳 𝙴𝙽𝙹𝙾𝚈 😍"""
-    HELP_TXT = """𝙷𝙴𝚈 {}
-𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂."""
-    ABOUT_TXT = """✯ 𝙼𝚈 𝙽𝙰𝙼𝙴: {}
-✯ 𝙲𝚁𝙴𝙰𝚃𝙾𝚁: <a href=https://t.me/grayhathacker676>IlluzX</a>
-✯ 𝙻𝙸𝙱𝚁𝙰𝚁𝚈: 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼
-✯ 𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴: 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹
-✯ 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
-✯ 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
-✯ 𝙱𝚄𝙸𝙻𝙳 𝚂𝚃𝙰𝚃𝚄𝚂: v1.0.1 [ 𝙱𝙴𝚃𝙰 ]"""
+    HELP_TXT = """𝙷𝚈 {}
+𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
+    ABOUT_TXT = """
+•>C𝚁𝙴𝙰𝚃𝙾𝚁: <a href=https://t.me/grayhathacker676>IlluzX</a>
+•>L𝙸B𝚁𝙰𝚁Y: 𝙿Y𝚁𝙾G𝚁A𝙼
+•>L𝙰N𝙶𝚄A𝙶E: 𝙿Y𝚃𝙷Ø𝙽 𝟹
+•>D𝙰𝚃A B𝙰S𝙴: M𝙾𝙽G𝙾 D𝙱
+•>H𝙾S𝚃 S𝙴R𝚅𝙴R: H𝙴���𝚁𝙾𝙺𝚄
+"""
     SOURCE_TXT = """<b>NOTE:</b>
-- Eva maria. 
-- Source -[Source]{https://github.com/illuzX/MVB}
+       × - Eva maria - ×
 **Disclaimer**
-im Not Owner Of This Source Code I Just Modified Some Modules so Its A Clone Project (From A Vazhatham)
+im Not Owner Of This Source Code I Just Modified Some Modules so Its A Clone Project 
 <b>DEVS:</b>
-- <a href=https://t.e/grayhathacker676>Team Eva&IlluzX </a>"""
+- <a href=https://t.e/grayhathacker676>Team Eva & IlluzX</a>"""
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
 - Filter is the feature were users can set automated replies for a particularkeyword and
