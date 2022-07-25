@@ -91,20 +91,20 @@ async def next_page(bot, query):
         off_set = offset - 10
     if n_offset == 0:
         btn.append(
-            [InlineKeyboardButton("PRV", callback_data=f"next_{req}_{key}_{off_set}"),
-             InlineKeyboardButton(f"📃 Pages {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}",
+            [InlineKeyboardButton("<•BACK", callback_data=f"next_{req}_{key}_{off_set}"),
+             InlineKeyboardButton(f"🎁 Pages {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}",
                                   callback_data="pages")]
         )
     elif off_set is None:
         btn.append(
             [InlineKeyboardButton(f"🎁 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
-             InlineKeyboardButton("NEXT⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
+             InlineKeyboardButton("NEXT•>", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
-                InlineKeyboardButton("PRV", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton("<•BACK", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f"🎁 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
-                InlineKeyboardButton("NEXT⏩", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("NEXT•>", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
     try:
@@ -407,7 +407,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
+            InlineKeyboardButton('🤖 Updates', url='https://t.me/uzx_bots')
         ], [
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
@@ -667,7 +667,7 @@ async def auto_filter(client, msg, spoll=False):
         req = message.from_user.id if message.from_user else 0
         btn.append(
             [InlineKeyboardButton(text=f"🎁 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
-             InlineKeyboardButton(text="NEXT⏩", callback_data=f"next_{req}_{key}_{offset}")]
+             InlineKeyboardButton(text="NEXT•>", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
