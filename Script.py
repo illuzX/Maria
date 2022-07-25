@@ -11,11 +11,13 @@ class script(object):
 •>H𝙾S𝚃S𝙴R𝚅𝙴R: HeRoku
 """
     SOURCE_TXT = """<b>NOTE:</b>
-       × - Eva maria - ×\n
+- <a href=https://t.me/TeamEvamaria>Eva Maria</a>
+- <a href=https://t.me/grayhathacker676>IlluZx</a>
 **Disclaimer**\n
-im Not Owner Of This Source Code I Just Modified Some Modules so Its A Clone Project 
+im Not Owner Of This Source Code I Just Modified Some Modules so Its A Clone Project \n
 <b>DEVS:</b>\n
-- <a href=https://t.e/grayhathacker676>Team Eva & IlluzX</a>"""
+- <a href=https://github.com/illuzX>𝐈𝐥𝐥𝐮𝐳𝕏</a>
+- <a href=https://github.com/EvamariaTG>Eva Maria </a>"""
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
 - Filter is the feature were users can set automated replies for a particularkeyword and
