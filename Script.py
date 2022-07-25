@@ -9,7 +9,7 @@ class script(object):
 •>L𝙰N𝙶𝚄A𝙶E: 𝙿Y𝚃𝙷Ø𝙽 𝟹
 •>D𝙰𝚃AB𝙰S𝙴: M𝙾𝙽G𝙾 D𝙱
 •>H𝙾S𝚃S𝙴R𝚅𝙴R: HeRoku
-"""���
+"""
     SOURCE_TXT = """<b>NOTE:</b>
        × - Eva maria - ×\n
 **Disclaimer**\n
