@@ -83,7 +83,7 @@ async def next_page(bot, query):
             for file in files
         ]
 
-    if 0 < offset <= 10:
+    if 0 < offset <= 5:
         off_set = 0
     elif offset == 0:
         off_set = None
@@ -136,7 +136,7 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             k = await query.message.edit('ഈ സിനിമ ഡാറ്റാബേസിൽ കാണുന്നില്ല അല്ലെങ്കിൽ ഇത് OTT റിലീസ് ചെയ്തിട്ടില്ല\n\nThis Movie Not Found In DataBase Or This Is Not Released in OTT)
-            await asyncio.sleep(25)
+            await asyncio.sleep(40)
             await k.delete()
 
 
@@ -666,12 +666,12 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"🎁 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
-             InlineKeyboardButton(text="NEXT•>", callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f" [1/]{math.ceil(int(total_results) / 10)}", callback_data="pages"),
+             InlineKeyboardButton(text="ຖēxt", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="🎁 1/1", callback_data="pages")]
+            [InlineKeyboardButton(text="[1/1]", callback_data="pages")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
