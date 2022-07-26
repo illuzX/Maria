@@ -57,7 +57,7 @@ async def start(client, message):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-        await asyncio.sleep(10)
+        await asyncio.sleep(600)
         await kj.delete()
         return
     if AUTH_CHANNEL and not await is_subscribed(client, message):
