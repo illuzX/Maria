@@ -33,6 +33,11 @@ im Not Owner Of This Source Code I Just Modified Some Modules so Its A Clone Pro
 • /filters - <code>list all the filters of a chat</code>
 • /del - <code>delete a specific filter in chat</code>
 • /delall - <code>delete the whole filters in a chat (chat owner only)</code>"""
+
+    DIMR = """
+<spoiler> **❗This Function Is Showcased **</spoiler> """
+
+
     BUTTON_TXT = """Help: <b>Buttons</b>
 
 - Meenu Supports both url and alert inline buttons.
