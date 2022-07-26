@@ -51,12 +51,14 @@ async def start(client, message):
             InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
+        kj=await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html'
         )
+        await asyncio.sleep(10)
+        await kj.delete()
         return
     if AUTH_CHANNEL and not await is_subscribed(client, message):
         try:
@@ -103,7 +105,7 @@ async def start(client, message):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-        await asyncio.sleep(60)
+        await asyncio.sleep(10)
         await kj.delete()
         return
     data = message.command[1]
