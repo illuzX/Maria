@@ -708,7 +708,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"Here is what i found for your query {search}\ntotal Files {math.ceil(int(files) / 10)} "
+        cap = f"Here is what i found for your query {search}\ntotal Files {math.ceil(int(file_files) / 10000)} "
     if imdb and imdb.get('poster'):
         try:
             await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
