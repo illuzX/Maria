@@ -666,7 +666,7 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f" [1/]{math.ceil(int(total_results) / 10)}", callback_data="pages"),
+            [InlineKeyboardButton(text=f"🎁 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
              InlineKeyboardButton(text="ຖēxt", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
@@ -708,7 +708,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"Here is what i found for your query {search}"
+        cap = f"Here is what i found for your query {search}\ntotal Files {math.ceil(int(total_results) / 10)} "
     if imdb and imdb.get('poster'):
         try:
             await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
@@ -765,7 +765,7 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         k = await msg.reply("I couldn't find anything related to that. Check your spelling\n\nഎനിക്ക് അതുമായി ബന്ധപ്പെട്ട ഒന്നും കണ്ടെത്താൻ കഴിഞ്ഞില്ല. നിങ്ങളുടെ അക്ഷരവിന്യാസം പരിശോധിക്കുക")
-        await asyncio.sleep(8)
+        await asyncio.sleep(10)
         await k.delete()
         return
     SPELL_CHECK[msg.message_id] = movielist
