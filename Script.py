@@ -7,9 +7,9 @@ class script(object):
 •>C𝚁𝙴𝙰𝚃𝙾𝚁: <a href=https://t.me/grayhathacker676>𝐈𝐥𝐥𝐮𝐳𝕏</a>
 •>L𝙸B𝚁𝙰𝚁Y: 𝙿Y𝚁𝙾G𝚁A𝙼 1.4.7
 •>L𝙰N𝙶𝚄A𝙶E: 𝙿Y𝚃𝙷Ø𝙽 3.9.1
-•>D𝙰𝚃AB𝙰S𝙴: M𝙾𝙽G𝙾 D𝙱(FreeUser)
-•>H𝙾S𝚃S𝙴R𝚅𝙴R: HeRoku (FreeUser)
-•>Base Repo : <a href=https://t.me/TeamEvamaria>Eva Maria</a>
+•>D𝙰𝚃AB𝙰S𝙴: M𝙾𝙽G𝙾 D𝙱
+•>H𝙾S𝚃S𝙴R𝚅𝙴R: Heroku / Vps
+•>Base Repo : <a href=https://github.com/EvamariaTG>Eva Maria</a>
 •>Build Status : 0.5.1
 """
     SOURCE_TXT = """<b>NOTE:</b>
