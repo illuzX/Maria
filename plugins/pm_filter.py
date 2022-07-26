@@ -135,8 +135,8 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('ഈ സിനിമ ഡാറ്റാബേസിൽ കാണുന്നില്ല അല്ലെങ്കിൽ ഇത് ഒട്ടിയിൽ റിലീസ് ചെയ്തിട്ടില്ല\nThis Movie Not Found In DataBase Or This Is Not Released in Ott')
-            await asyncio.sleep(40)
+            k = await query.message.edit('ഈ സിനിമ ഡാറ്റാബേസിൽ കാണുന്നില്ല അല്ലെങ്കിൽ ഇത് OTT റിലീസ് ചെയ്തിട്ടില്ല\n\nThis Movie Not Found In DataBase Or This Is Not Released in OTT)
+            await asyncio.sleep(25)
             await k.delete()
 
 
@@ -364,7 +364,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
-                await query.answer('Check PM, I have sent files in pm', show_alert=True)
+                await query.answer('Check PM, I have sent files in pm\n\nPM പരിശോധിക്കുക, നിങ്ങളുടെ pm-ൽ ഞാൻ ഫയലുകൾ അയച്ചിട്ടുണ്ട്', show_alert=True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
         except PeerIdInvalid:
@@ -641,7 +641,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"📂[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -650,11 +650,11 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{file.file_name}",
+                    text=f"📂{file.file_name}",
                     callback_data=f'{pre}#{file.file_id}',
                 ),
                 InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}",
+                    text=f"🌐{get_size(file.file_size)}",
                     callback_data=f'{pre}#{file.file_id}',
                 ),
             ]
@@ -735,8 +735,8 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(8)
+        k = await msg.reply("I couldn't find any movie in that name.\n\nആ പേരിൽ ഒരു സിനിമയും എനിക്ക് കണ്ടെത്താൻ കഴിഞ്ഞില്ല")
+        await asyncio.sleep(18)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -764,7 +764,7 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("I couldn't find anything related to that. Check your spelling")
+        k = await msg.reply("I couldn't find anything related to that. Check your spelling\n\nഎനിക്ക് അതുമായി ബന്ധപ്പെട്ട ഒന്നും കണ്ടെത്താൻ കഴിഞ്ഞില്ല. നിങ്ങളുടെ അക്ഷരവിന്യാസം പരിശോധിക്കുക")
         await asyncio.sleep(8)
         await k.delete()
         return
@@ -776,7 +776,7 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?",
+    await msg.reply( "എനിക്ക് അതുമായി ബന്ധപ്പെട്ട ഒന്നും കണ്ടെത്താൻ കഴിഞ്ഞില്ല നിങ്ങൾ ഇതിൽ ഏതെങ്കിലും ഒന്നാണോ ഉദ്ദേശിച്ചത്? \n\n I couldn't find anything related to that\nDid you mean any one of these?",
                     reply_markup=InlineKeyboardMarkup(btn))
 
 
