@@ -407,7 +407,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
             InlineKeyboardButton('OTT UPDATES🗃️',url='https://t.me/MalayalamOTTUpdatesMvb')
-        ], [
             InlineKeyboardButton('❗ Disclaimer ❗', callback_data='ddl')
         ], [
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
