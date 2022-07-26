@@ -92,6 +92,7 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('🖼️ Ott updates',url='https://t.me/MalayalamOTTUpdatesMvb'),
             InlineKeyboardButton('❗ Disclaimer', callback_data='ddl')
+            ],[
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
         ]]
