@@ -100,18 +100,13 @@ This module only works for my admins
 • /unban  - <code>to unban a user.</code>
 • /channel - <code>to get list of total connected channels</code>
 • /broadcast - <code>to broadcast a message to all users</code>"""
-    STATUS_TXT = """╭──────────Menu──────────│
-├
-│ <b>└Cᴏᴜɴᴛ ᴏғ Fɪʟᴇs</b>: <code>{}</code>
-├
-│ <b>└TᴏTᴀʟ Usᴇʀs</b>: <code>{}</code>
-├
-│ <b>└TᴏTᴀʟ Gʀᴏᴜᴘs</b>: <code>{}</code>
-├
-│ <b>└Usᴇᴅ Sᴛᴏʀᴀɢᴇ</b>: <code>{}</code>
-├
-│ <b>└Aᴠᴀɪʟᴀʙʟᴇ Sᴘᴀᴄᴇ</b>: <code>{}</code>
-╰────────────────"""
+    STATUS_TXT = """╭──
+│<b>└Cᴏᴜɴᴛ ᴏғ Fɪʟᴇs</b>: <code>{}</code>
+│<b>└TᴏTᴀʟ Usᴇʀs</b>: <code>{}</code>
+│<b>└TᴏTᴀʟ Gʀᴏᴜᴘs</b>: <code>{}</code>
+│<b>└Usᴇᴅ Sᴛᴏʀᴀɢᴇ</b>: <code>{}</code>
+│<b>└Aᴠᴀɪʟᴀʙʟᴇ Sᴘᴀᴄᴇ</b>: <code>{}</code>
+╰────"""
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
