@@ -100,10 +100,10 @@ This module only works for my admins
 • /unban  - <code>to unban a user.</code>
 • /channel - <code>to get list of total connected channels</code>
 • /broadcast - <code>to broadcast a message to all users</code>"""
-    STATUS_TXT = """╭──────────────〄
+    STATUS_TXT = """╭──────────S̸t̸a̸t̸s̸ m̸e̸n̸u̸─────────〄
 │
 ├
-│b>└Cᴏᴜɴᴛ ᴏғ Fɪʟᴇs</b>: <code>{}</code>
+│<b>└Cᴏᴜɴᴛ ᴏғ Fɪʟᴇs</b>: <code>{}</code>
 ├
 │<b>└TᴏTᴀʟ Usᴇʀs</b>: <code>{}</code>
 ├
