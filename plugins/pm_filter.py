@@ -729,6 +729,8 @@ async def auto_filter(client, msg, spoll=False):
             url=imdb['url'],
             **locals()
         )
+        await asyncio.sleep(0.5)
+        await imdb.delete()
     else:
         cap = f"Here is what i found for your query <spoiler>**{search}**</spoiler>"
     if imdb and imdb.get('poster'):
