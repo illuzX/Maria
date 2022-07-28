@@ -409,7 +409,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
      #  await asyncio.sleep(5)
       # f3 = await f2.edit("meenakshi...")
       # await asyncio.sleep(5)
-      # await f3.delete()
+      # await f3.delete() This Function Is Not Be Use More 🤕
         buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
