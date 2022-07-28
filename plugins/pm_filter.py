@@ -690,8 +690,6 @@ async def auto_filter(client, msg, spoll=False):
         btn.append(
             [InlineKeyboardButton(text=f"🎁 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
              InlineKeyboardButton(text="ຖēxt", callback_data=f"next_{req}_{key}_{offset}")]
-        await asyncio.sleep(1.9)
-        await key.delete()
         )
     else:
         btn.append(
