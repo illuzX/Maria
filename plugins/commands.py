@@ -20,6 +20,13 @@ BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
+        f1 = await query.message.reply_text("Hy..")
+        await asyncio.sleep(5)
+        f2 = await f1.edit("my name is")
+        await asyncio.sleep(5)
+        f3 = await f2.edit("meenakshi...")
+        await asyncio.sleep(5)
+        await f3.delete()
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
@@ -51,14 +58,14 @@ async def start(client, message):
             InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        kj=await message.reply_photo(
+        f3=await f3.edit.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html'
         )
-        await asyncio.sleep(600)
-        await kj.delete()
+        #await asyncio.sleep(600)
+        #await kj.delete()
         return
     if AUTH_CHANNEL and not await is_subscribed(client, message):
         try:
