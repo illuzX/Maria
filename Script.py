@@ -1,6 +1,6 @@
 class script(object):
-    START_TXT = """
-    Iam A Advance AutoFilter Bot Im Only Work In Groups\nAdd Me as a! admin In You're Group And see Magic ✨"""
+    START_TXT = """ Hy{} ,
+    Iam a Advance AutoFilter Bot \nIm Only Work In Groups\nAdd Me as a! admin In You're Group And see Magic ✨"""
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
