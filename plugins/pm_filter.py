@@ -409,7 +409,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
      #  await asyncio.sleep(5)
       # f3 = await f2.edit("meenakshi...")
       # await asyncio.sleep(5)
-      # await f3.delete() This Function Is Not Be Use More 🤕
+      # await f3.delete() This Function Is Not Be Use More
         buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
@@ -822,28 +822,34 @@ async def manual_filters(client, message, text=False):
                             await client.send_message(group_id, reply_text, disable_web_page_preview=True)
                         else:
                             button = eval(btn)
-                            await client.send_message(
+                            rmv=await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
+                            await asyncio.sleep(10)
+                            await rmv.delete()
                     elif btn == "[]":
-                        await client.send_cached_media(
+                        rv=await client.send_cached_media(
                             group_id,
                             fileid,
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
+                        await asyncio.sleep(10)
+                        await rv.delete()
                     else:
                         button = eval(btn)
-                        await message.reply_cached_media(
+                        rm=await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
+                        await asyncio.sleep(10)
+                        await rm.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
