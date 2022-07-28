@@ -20,6 +20,7 @@ BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
+    if message.chat.type in ['group', 'supergroup']:
         f1 = await query.message.reply_text("Hy..")
         await asyncio.sleep(5)
         f2 = await f1.edit("my name is")
@@ -27,7 +28,6 @@ async def start(client, message):
         f3 = await f2.edit("meenakshi...")
         await asyncio.sleep(5)
         await f3.delete()
-    if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
                 InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
