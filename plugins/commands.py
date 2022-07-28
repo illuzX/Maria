@@ -26,8 +26,8 @@ async def start(client, message):
         f2 = await f1.edit("my name is")
         await asyncio.sleep(5)
         f3 = await f2.edit("meenakshi...")
-        await asyncio.sleep(5)
-        await f3.delete()
+        #await asyncio.sleep(5)
+       # await f3.delete()
         buttons = [
             [
                 InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
@@ -58,7 +58,7 @@ async def start(client, message):
             InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        f3=await f3.edit.reply_photo(
+        f3=await f3.edit.(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
