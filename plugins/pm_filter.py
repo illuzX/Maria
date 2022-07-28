@@ -739,16 +739,16 @@ async def auto_filter(client, msg, spoll=False):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             jc=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(120)
             await jc.delete()
         except Exception as e:
             logger.exception(e)
             mju=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(120)
             await mju.delete()
     else:
         maju=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(0.5)
+        await asyncio.sleep(120)
         await maju.delete()
     if spoll:
         await msg.message.delete()
