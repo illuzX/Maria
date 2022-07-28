@@ -403,13 +403,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
-        f1 = await query.message.reply_text("Hy..")
-        await asyncio.sleep(5)
-        f2 = await f1.edit("my name is")
-        await asyncio.sleep(5)
-        f3 = await f2.edit("meenakshi...")
-      #  await asyncio.sleep(5)
-      #  await f3.delete()
+      # f1 = await query.message.reply_text("Hy..")
+      # await asyncio.sleep(5)
+      # f2 = await f1.edit("my name is")
+     #  await asyncio.sleep(5)
+      # f3 = await f2.edit("meenakshi...")
+      # await asyncio.sleep(5)
+      # await f3.delete()
         buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
@@ -420,13 +420,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await f3.edit_text(
+        kj=await query.message.edit_text(
             text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html'
         )
-        #await asyncio.sleep(600)
-        #await kj.delete()
+        await asyncio.sleep(600)
+        await kj.delete()
         await query.answer('Piracy Is Crime')
     elif query.data == "help":
         buttons = [[
