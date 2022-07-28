@@ -729,8 +729,6 @@ async def auto_filter(client, msg, spoll=False):
             url=imdb['url'],
             **locals()
         )
-        await asyncio.sleep(0.5)
-        await imdb.delete()
     else:
         cap = f"Here is what i found for your query <spoiler>**{search}**</spoiler>"
     if imdb and imdb.get('poster'):
@@ -741,7 +739,7 @@ async def auto_filter(client, msg, spoll=False):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             jc=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(120)
+            await asyncio.sleep(0.5)
             await jc.delete()
         except Exception as e:
             logger.exception(e)
