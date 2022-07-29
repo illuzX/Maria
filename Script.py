@@ -1,6 +1,6 @@
 class script(object):
     START_TXT = """ Hy{} ,
-    Iam a Advance AutoFilter Bot \nIm Only Work In Groups\nAdd Me as a! admin In You're Group And see Magic ✨"""
+    Iam a Advance AutoFilter BBo... and you can Call Me As Meenu\nIm Only Work with Groups\nAdd Me as a! admin In You're Group And see Magic ✨"""
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
@@ -8,9 +8,9 @@ class script(object):
 •>L𝙸B𝚁𝙰𝚁Y: 𝙿Y𝚁𝙾G𝚁A𝙼 1.4.7
 •>L𝙰N𝙶𝚄A𝙶E: 𝙿Y𝚃𝙷Ø𝙽 3.9.1
 •>D𝙰𝚃AB𝙰S𝙴: M𝙾𝙽G𝙾 D𝙱
-•>H𝙾S𝚃S𝙴R𝚅𝙴R: Heroku / Vps
-•>Base Repo : <a href=https://github.com/EvamariaTG>Eva Maria</a>
-•>Build Status : 0.5.1
+•>H𝙾S𝚃S𝙴R𝚅𝙴R: HᴇRᴏᴋᴜ / Vᴘs
+•>Bᴀsᴇ Rᴇᴘᴏ : <a href=https://github.com/EvamariaTG>Eᴠᴀ Mᴀʀɪᴀ</a>
+•>Bᴜɪʟᴅ Sᴛᴀᴛᴜs : 1.0.1F
 """
     SOURCE_TXT = """
 - <a href=https://t.me/TeamEvamaria>Eva Maria</a>
@@ -37,7 +37,10 @@ im Not Owner Of This Source Code I Just Modified Some Modules so Its A Clone Pro
 • /delall - <code>delete the whole filters in a chat (chat owner only)</code>"""
 
     DIMR = """
-<spoiler> <b>❗This Function Is Showcased </b></spoiler> """
+⚠️𝘿𝙄𝙎𝘾𝙇𝘼𝙄𝙈𝙀𝙍
+𝙰𝚕𝚕 𝚝𝚑𝚎 𝚌𝚘𝚗𝚝𝚎𝚗𝚝𝚜 𝚑𝚎𝚛𝚎 𝚊𝚛𝚎 𝚎𝚒𝚝𝚑𝚎𝚛 𝚏𝚘𝚛𝚠𝚊𝚛𝚍𝚎𝚍 𝚏𝚛𝚘𝚖 𝚘𝚝𝚑𝚎𝚛 𝚌𝚑𝚊𝚗𝚗𝚎𝚕 𝚘𝚛 𝚌𝚘𝚙𝚒𝚎𝚍 𝚏𝚛𝚘𝚖 𝚝𝚑𝚎𝚖. 𝚆𝚎 𝚍𝚘𝚗'𝚝 𝚘𝚠𝚗 𝚊𝚗𝚢 𝚘𝚏 𝚝𝚑𝚎 𝙼𝚘𝚟𝚒𝚎𝚜 𝚘𝚛 𝚂𝚎𝚛𝚒𝚎𝚜.
+𝙸𝚏 𝚈𝚘𝚞 𝚊𝚛𝚎 𝚝𝚑𝚎 𝚛𝚒𝚐𝚑𝚝𝚜 𝚘𝚠𝚗𝚎𝚛 𝚊𝚗𝚍 𝚠𝚊𝚗𝚝 𝚝𝚘 𝚛𝚎𝚖𝚘𝚟𝚎 𝚊𝚗𝚢 𝚌𝚎𝚛𝚝𝚊𝚒𝚗 𝚏𝚒𝚕𝚎𝚜, 𝙿𝚕𝚎𝚊𝚜𝚎 𝚛𝚎𝚙𝚘𝚛𝚝 𝚞𝚜, 𝚠𝚎 𝚊𝚛𝚎 𝚛𝚎𝚊𝚍𝚢 𝚝𝚘 𝚛𝚎𝚖𝚘𝚟𝚎 𝚝𝚑𝚘𝚜𝚎 𝚌𝚘𝚗𝚝𝚎𝚗𝚝 𝚊𝚜 𝚜𝚘𝚘𝚗 𝚊𝚜 𝚠𝚎 𝚌𝚊𝚗!
+𝙰𝚍𝚖𝚒𝚗 𝙸𝚜 𝙽𝚘𝚝 𝚁𝚎𝚜𝚙𝚘𝚗𝚜𝚒𝚋𝚕𝚎 𝙵𝚘𝚛 𝚊𝚗𝚢 𝙳𝚒𝚛𝚎𝚌𝚝 & 𝚒𝚗𝚍𝚒𝚛𝚎𝚌𝚝 𝙿𝚛𝚘𝚏𝚒𝚝 𝚕𝚘𝚜𝚜"""
 
 
     BUTTON_TXT = """Help: <b>Buttons</b>
