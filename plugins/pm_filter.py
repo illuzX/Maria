@@ -448,6 +448,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "ddl":
         buttons = [[
+            InlineKeyboardButton('Admin👩‍💻', url='https://t.me/RecallMvbadmin_Bot')
+          ],[
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔐 Close', callback_data='close_data')
         ]]
