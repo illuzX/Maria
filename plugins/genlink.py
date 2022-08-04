@@ -25,7 +25,7 @@ async def gen_link_s(bot, message):
     replied = message.reply_to_message
     if not replied:
         return await message.reply('Reply to a message to get a shareable link.')
-    file_type = replied.MessageMediaType
+    file_type = replied.media
     if file_type not in [enums.MessageMediaType.DOCUMENT, enums.MessageMediaType.VIDEO, enums.MessageMediaType.AUDIO]:
         return await message.reply("Reply to a supported media")
     if message.has_protected_content and message.chat.id not in ADMINS:
@@ -86,7 +86,7 @@ async def gen_link_batch(bot, message):
     # file store without db channel
     og_msg = 0
     tot = 0
-    async for msg in bot.iter_messages(f_chat_id, l_msg_id, f_msg_id):
+    async for msg in bot.get_messages(f_chat_id, l_msg_id, f_msg_id):
         tot += 1
         if msg.empty or msg.service:
             continue
