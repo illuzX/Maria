@@ -125,7 +125,7 @@ async def get_all(client, message):
     if not userid:
         return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
     if chat_type == enums.ChatType.PRIVATE:
-       userid = message.from_user.id
+        userid = message.from_user.id
         grpid = await active_connection(str(userid))
         if grpid is not None:
             grp_id = grpid
