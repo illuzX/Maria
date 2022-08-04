@@ -94,7 +94,7 @@ async def deleteconnection(client, message):
 
         st = await client.get_chat_member(group_id, userid)
         if (
-                st.status != enums.ChatMemberStatus.ADMINISTRATOR"
+                st.status != enums.ChatMemberStatus.ADMINISTRATOR
                 and st.status != enums.ChatMemberStatus.OWNER
                 and str(userid) not in ADMINS
         ):
