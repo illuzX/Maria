@@ -6,7 +6,7 @@ logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 logging.getLogger("imdbpy").setLevel(logging.ERROR)
-import uvloop
+#import uvloop
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
@@ -45,6 +45,5 @@ class Bot(Client):
         await super().stop()
         logging.info("Bot stopped. Bye.")
 
-uvloop.install()
 app = Bot()
 app.run()
