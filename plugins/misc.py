@@ -24,7 +24,7 @@ async def showid(client, message):
             quote=True
         )
 
-    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP:
+    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         _id = ""
         _id += (
             "<b>➲ Chat ID</b>: "
