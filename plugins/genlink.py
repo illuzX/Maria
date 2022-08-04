@@ -30,9 +30,9 @@ async def gen_link_s(bot, message):
         return await message.reply("Reply to a supported media")
     if message.has_protected_content and message.chat.id not in ADMINS:
         return await message.reply("okDa")
-    file_id, ref = unpack_new_file_id((getattr(rep_ly, file_type)).file_id)
+    file_id, ref = unpack_new_file_id((getattr(rep_ly, 'file_type')).file_id)
     string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
-    string = 'file_id'
+    string = file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={outstr}")
     
