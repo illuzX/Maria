@@ -132,7 +132,9 @@ async def set_skip_number(uzx, message):
         temp.CURRENT = int(skip)
     else:
         await message.reply("Give me a skip number")
-
+        
+async def __aiter__(self):
+       return self.__wrapped__.__aiter__()
 
 async def index_files_to_db(lst_msg_id, chat, msg, uzx):
     total_files = 0
