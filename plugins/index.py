@@ -148,7 +148,7 @@ async def index_files_to_db(lst_msg_id, chat, msg, uzx):
         try:
             current = temp.CURRENT
             temp.CANCEL = False
-            async for message in uzx.get_messages(chat, lst_msg_id, temp.CURRENT):
+            async for message in uzx.iter_messages(chat, lst_msg_id, temp.CURRENT):
                 if temp.CANCEL:
                     await msg.edit(f"Successfully Cancelled!!\n\nSaved <code>{total_files}</code> files to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>")
                     break
