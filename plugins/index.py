@@ -12,7 +12,6 @@ import re
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 lock = asyncio.Lock()
-import bot 
 
 
 @Client.on_callback_query(filters.regex(r'^index'))
