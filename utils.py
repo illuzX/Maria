@@ -33,11 +33,12 @@ class temp(object):
     BANNED_USERS = []
     BANNED_CHATS = []
     ME = None
-    CURRENT=int(os.environ.get("SKIP", 2))
+    CURRENT=int(os.environ.get("SKIP", 4))
     CANCEL = False
     MELCOW = {}
     U_NAME = None
     B_NAME = None
+    G_LINK = None
     SETTINGS = {}
 
 async def is_subscribed(bot, query):
