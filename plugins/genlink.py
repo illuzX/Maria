@@ -48,7 +48,7 @@ async def gen_link_batch(bot, message):
     regex = re.compile("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
     match = regex.match(first)
     if not match:
-        return await message.reply('Invalid link')
+        return await message.reply(f'Errors - {e}')
     f_chat_id = match.group(4)
     f_msg_id = int(match.group(5))
     if f_chat_id.isnumeric():
@@ -56,7 +56,7 @@ async def gen_link_batch(bot, message):
 
     match = regex.match(last)
     if not match:
-        return await message.reply('Invalid link')
+        return await message.reply(f'Errors - {e}')
     l_chat_id = match.group(4)
     l_msg_id = int(match.group(5))
     if l_chat_id.isnumeric():
@@ -70,8 +70,8 @@ async def gen_link_batch(bot, message):
         return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
     except (UsernameInvalid, UsernameNotModified):
         return await message.reply('Invalid Link specified.')
-    #except Exception as e:
-        #return await message.reply(f'Errors - {e}')
+    except Exception as e:
+        return await message.reply(f'Errors - {e}')
 
     sts = await message.reply("Generating link for your message.\nThis may take time depending upon number of messages")
     if chat_id in FILE_STORE_CHANNEL:
