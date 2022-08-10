@@ -70,8 +70,8 @@ async def gen_link_batch(bot, message):
         return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
     except (UsernameInvalid, UsernameNotModified):
         return await message.reply('Invalid Link specified.')
-    except Exception as e:
-        return await message.reply(f'Errors - {e}')
+    #except Exception as e:
+        #return await message.reply(f'Errors - {e}')
 
     sts = await message.reply("Generating link for your message.\nThis may take time depending upon number of messages")
     if chat_id in FILE_STORE_CHANNEL:
