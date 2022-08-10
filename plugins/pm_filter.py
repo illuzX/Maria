@@ -363,9 +363,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True if ident == "filep" else False 
                 )
                 await query.answer('Check PM, I have sent files in pm\n\nPM പരിശോധിക്കുക, നിങ്ങളുടെ pm-ൽ ഞാൻ ഫയലുകൾ അയച്ചിട്ടുണ്ട്', show_alert=True)
-              try:
-                 if not in [query.from_user.id, 0]:
-                 return await query.answer("Ayo Ayo! ask own request", show_alert=True)
+        try:
+            if not in [query.from_user.id, 0]:
+               return await query.answer("Ayo Ayo! ask own request", show_alert=True)
                 
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
