@@ -795,7 +795,7 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         k = await msg.reply("I couldn't find anything related to that. Check your spelling\n\nഎനിക്ക് അതുമായി ബന്ധപ്പെട്ട ഒന്നും കണ്ടെത്താൻ കഴിഞ്ഞില്ല. നിങ്ങളുടെ അക്ഷരവിന്യാസം പരിശോധിക്കുക")
-        await asyncio.sleep(10)
+        await asyncio.sleep(3)
         await k.delete()
         return
     SPELL_CHECK[msg.id] = movielist
@@ -808,8 +808,7 @@ async def advantage_spell_chok(msg):
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     ub=await msg.reply( "എനിക്ക് അതുമായി ബന്ധപ്പെട്ട ഒന്നും കണ്ടെത്താൻ കഴിഞ്ഞില്ല നിങ്ങൾ ഇതിൽ ഏതെങ്കിലും ഒന്നാണോ ഉദ്ദേശിച്ചത്? \n\n I couldn't find anything related to that\nDid you mean any one of these?",
                     reply_markup=InlineKeyboardMarkup(btn))
-    await asynco.sleep(5)
-    await ub.delete.()
+
        
 
 async def manual_filters(client, message, text=False):
