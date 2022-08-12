@@ -165,7 +165,7 @@ async def search_gagala(text):
     url = f'https://www.google.com/search?q={text}'
     response = requests.get(url, headers=usr_agent)
     response.raise_for_status()
-    soup = BeautifulSoup(response.text,enums..ParseMode.HTML)
+    soup = BeautifulSoup(response.text,enums.ParseMode.HTML)
     titles = soup.find_all( 'h3' )
     return [title.getText() for title in titles]
 
