@@ -21,13 +21,13 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        f1 = await query.message.reply_text("Hy..")
-        await asyncio.sleep(5)
-        f2 = await f1.edit("my name is")
-        await asyncio.sleep(5)
-        f3 = await f2.edit("meenakshi...")
-        await asyncio.sleep(5)
-        await f3.delete()
+        #f1 = await query.message.reply_text("Hy..")
+        #await asyncio.sleep(5)
+        #f2 = await f1.edit("my name is")
+        #await asyncio.sleep(5)
+        #f3 = await f2.edit("meenakshi...")
+        #await asyncio.sleep(5)
+        #await f3.delete()
         buttons = [
             [
                 InlineKeyboardButton('🤖 Updates', url='https://t.me/uzx_bots')
