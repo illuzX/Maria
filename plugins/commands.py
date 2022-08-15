@@ -21,13 +21,6 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        f1 = await query.message.reply_text("Hy..")
-        await asyncio.sleep(5)
-        f2 = await f1.edit("my name is")
-        await asyncio.sleep(5)
-        f3 = await f2.edit("meenakshi...")
-        await asyncio.sleep(5)
-        await f3.delete()
         buttons = [
             [
                 InlineKeyboardButton('🤖 Updates', url='https://t.me/uzx_bots')
@@ -37,7 +30,7 @@ async def start(client, message):
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
-        f3=await f3.edit(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
+        await message.edit(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
         await asyncio.sleep(2) # 😢 https://github.com/EvamariaTG/EvaMaria/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
         if not await db.get_chat(message.chat.id):
             total=await client.get_chat_members_count(message.chat.id)
@@ -225,7 +218,7 @@ async def start(client, message):
                 protect_content=True if pre == 'filep' else False,
                 )
             filetype = msg.media
-            file = getattr(msg, filetype)
+            file = getattr(msg, filetype.value)
             title = file.file_name
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
@@ -308,8 +301,8 @@ async def delete(bot, message):
         await message.reply('Reply to file with /delete which you want to delete', quote=True)
         return
 
-    for file_type in ("document", "video", "audio"):
-        media = getattr(reply, file_type, None)
+    for file_type in enums.MessageMediaType.DOCUMENT, enums.MessageMediaType.VIDEO, enums.MessageMediaType.AUDIO:
+        media = getattr(reply, file_type.value, None)
         if media is not None:
             break
     else:
