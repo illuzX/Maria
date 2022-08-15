@@ -1,5 +1,6 @@
 # https://github.com/odysseusmax/animated-lamp/blob/master/bot/database/database.py
 import motor.motor_asyncio
+import datetime, timedelta
 from info import DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT
 
 class Database:
@@ -21,6 +22,11 @@ class Database:
             ),
         )
 
+
+    def ban_chat_member(
+        chat_id,
+        user_id,
+        until_date=datetime(year=y, month=m, day=d))
 
     def new_group(self, id, title):
         return dict(
