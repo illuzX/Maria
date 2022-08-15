@@ -1,4 +1,4 @@
-pyrogram
+pyrogram>=2.0.36
 tgcrypto
 uvloop
 pymongo[srv]==3.12.3
