@@ -23,10 +23,10 @@ class Database:
         )
 
 
-    def ban_chat_member(
-        chat_id,
-        user_id,
-        until_date=datetime(year=y, month=m, day=d))
+    #def ban_chat_member(
+        #chat_id,
+       # user_id,
+       # until_date=datetime(year=y, month=m, day=d))
 
     def new_group(self, id, title):
         return dict(
