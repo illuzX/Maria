@@ -45,7 +45,7 @@ async def addfilter(client, message):
 
     st = await client.get_chat_member(grp_id, userid)
     if (
-        st.status != enums.ChatMemberStatus.ADMINISTRATOR
+        st. != enums.ChatMemberStatus.ADMINISTRATOR
         and st.status != enums.ChatMemberStatus.OWNER
         and str(userid) not in ADMINS
     ):
@@ -210,8 +210,8 @@ async def deletefilter(client, message):
 
     st = await client.get_chat_member(grp_id, userid)
     if (
-        st.status != "administrator"
-        and st.status != "creator"
+        st.status != enums.ChatMemberStatus.ADMINISTRATOR
+        and st.status != enums.ChatMemberStatus.OWNER
         and str(userid) not in ADMINS
     ):
         return
@@ -239,7 +239,7 @@ async def delallconfirm(client, message):
         return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
     chat_type = message.chat.type
 
-    if chat_type == "private":
+    if chat_type == enums.ChatType.PRIVATE:
         grpid  = await active_connection(str(userid))
         if grpid is not None:
             grp_id = grpid
@@ -261,7 +261,7 @@ async def delallconfirm(client, message):
         return
 
     st = await client.get_chat_member(grp_id, userid)
-    if (st.status == "creator") or (str(userid) in ADMINS):
+    if (st.status == enums.ChatMemberStatus.OWNER) or (str(userid) in ADMINS):
         await message.reply_text(
             f"This will delete all filters from '{title}'.\nDo you want to continue??",
             reply_markup=InlineKeyboardMarkup([
