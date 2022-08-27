@@ -71,7 +71,7 @@ async def delete_filter(message, text, group_id):
         await message.reply_text(
             f"'`{text}`'  deleted. I'll not respond to that filter anymore.",
             quote=True,
-            parse_mode=enums.ParseMode.HTML
+            parse_mode=enums.ParseMode.MARKDOWN
         )
     else:
         await message.reply_text("Couldn't find that filter!", quote=True)
