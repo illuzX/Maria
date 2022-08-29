@@ -22,7 +22,6 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.from_user.id not in ADMINS:
         await message.delete()
-        return
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
