@@ -550,7 +550,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
       if message.from_user.id not in ADMINS:
           await message.delete()
           return
-print("error")
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
             InlineKeyboardButton('♻️', callback_data='rfrsh')
