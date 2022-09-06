@@ -466,7 +466,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(
             text=script.ABOUT_TXT.format(temp.B_NAME),
             reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.MARKDOWN
+            parse_mode=enums.ParseMode.HTML
         )
         
     elif query.data == "source":
@@ -477,7 +477,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(
             text=script.SOURCE_TXT,
             reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.MARKDOWN
+            parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "manuelfilter":
         buttons = [[
