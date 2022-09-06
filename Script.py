@@ -1,16 +1,16 @@
 class script(object):
-    START_TXT = """ Hy👋🏻 {} \n
- Iam a Advance AutoFilter Bot... and you can Call Me As <a href=https://t.me/Meenukutty_Bot>Meenu</a>\nIm Only Work with Groups\n<a href=http://t.me/Meenukutty_Bot?startgroup=true>Add Me as a! admin In You're Group</a> And see Magic ✨"""
+    START_TXT = """ Hy👋🏻 {}\n
+ ✨Iam a advanced Robot For Filter Files  made with Python  Click  on help button To know how to use """
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
-•>C𝚁𝙴𝙰𝚃𝙾𝚁: <a href=https://t.me/grayhathacker767>𝐈𝐥𝐥𝐮𝐳𝕏</a>
+•>C𝚁𝙴𝙰𝚃𝙾𝚁: <a href=https://t.me/illuzX3>𝐈𝐥𝐥𝐮𝐳𝕏</a>
 •>L𝙸B𝚁𝙰𝚁Y: 𝙿Y𝚁𝙾G𝚁A𝙼 2.0.35
 •>L𝙰N𝙶𝚄A𝙶E: 𝙿Y𝚃𝙷Ø𝙽 3+
 •>D𝙰𝚃AB𝙰S𝙴: M𝙾𝙽G𝙾 D𝙱
 •>H𝙾S𝚃S𝙴R𝚅𝙴R: HᴇRᴏᴋᴜ / Vᴘs
 •>Bᴀsᴇ Rᴇᴘᴏ : <a href=https://github.com/EvamariaTG>Eᴠᴀ Mᴀʀɪᴀ</a>
-•>Bᴜɪʟᴅ Sᴛᴀᴛᴜs :<a href=https://telegra.ph/file/8b5a816c0d7af150e54de.jpg>1.0.1F</a>
+•>Bᴜɪʟᴅ Sᴛᴀᴛᴜs :> .0.1F</a>
 """
     SOURCE_TXT = """
 - <a href=https://t.me/TeamEvamaria>Eva Maria</a>
