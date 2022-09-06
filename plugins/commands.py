@@ -363,7 +363,7 @@ async def delete_all_index_confirm(bot, message):
     await message.answer('Piracy Is Crime')
     await message.message.edit('Succesfully Deleted All The Indexed Files.')
 
-@Client.on_message(filters.command)('ownbot')
+@Client.on_message(filters.command('ownbot'))
 async def ownbot(client, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id)
