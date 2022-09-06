@@ -20,8 +20,6 @@ BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
-    if message.from_user.id not in ADMINS:
-        await message.delete()
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
@@ -206,7 +204,7 @@ async def start(client, message):
 
     files_ = await get_file_details(file_id)           
     if not files_:
-        pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 0)
+        pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
@@ -214,7 +212,7 @@ async def start(client, message):
                 protect_content=True if pre == 'filep' else False,
                 )
             filetype = msg.media
-            file = getattr(msg, filetype.value)
+            file = getattr(msg, filetype)
             title = file.file_name
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
