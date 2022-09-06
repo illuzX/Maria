@@ -541,10 +541,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "infodc":
-       await query.answer("""𝙰𝚕𝚕 𝚝𝚑𝚎 𝚌𝚘𝚗𝚝𝚎𝚗𝚝𝚜 𝚑𝚎𝚛𝚎 𝚊𝚛𝚎 𝚎𝚒𝚝𝚑𝚎𝚛 𝚏𝚘𝚛𝚠𝚊𝚛𝚍𝚎𝚍 𝚏𝚛𝚘𝚖 𝚘𝚝𝚑𝚎𝚛 𝚌𝚑𝚊𝚗𝚗𝚎𝚕 𝚘𝚛 𝚌𝚘𝚙𝚒𝚎𝚍 𝚏𝚛𝚘𝚖 𝚝𝚑𝚎𝚖. 𝚆𝚎 𝚍𝚘𝚗'𝚝 𝚘𝚠𝚗 𝚊𝚗𝚢 𝚘𝚏 𝚝𝚑𝚎 𝙼𝚘𝚟𝚒𝚎𝚜 𝚘𝚛 𝚂𝚎𝚛𝚒𝚎𝚜.
+    """elif query.data == "infodc":
+       await query.answer𝙰𝚕𝚕 𝚝𝚑𝚎 𝚌𝚘𝚗𝚝𝚎𝚗𝚝𝚜 𝚑𝚎𝚛𝚎 𝚊𝚛𝚎 𝚎𝚒𝚝𝚑𝚎𝚛 𝚏𝚘𝚛𝚠𝚊𝚛𝚍𝚎𝚍 𝚏𝚛𝚘𝚖 𝚘𝚝𝚑𝚎𝚛 𝚌𝚑𝚊𝚗𝚗𝚎𝚕 𝚘𝚛 𝚌𝚘𝚙𝚒𝚎𝚍 𝚏𝚛𝚘𝚖 𝚝𝚑𝚎𝚖. 𝚆𝚎 𝚍𝚘𝚗'𝚝 𝚘𝚠𝚗 𝚊𝚗𝚢 𝚘𝚏 𝚝𝚑𝚎 𝙼𝚘𝚟𝚒𝚎𝚜 𝚘𝚛 𝚂𝚎𝚛𝚒𝚎𝚜.
 𝙸𝚏 𝚈𝚘𝚞 𝚊𝚛𝚎 𝚝𝚑𝚎 𝚛𝚒𝚐𝚑𝚝𝚜 𝚘𝚠𝚗𝚎𝚛 𝚊𝚗𝚍 𝚠𝚊𝚗𝚝 𝚝𝚘 𝚛𝚎𝚖𝚘𝚟𝚎 𝚊𝚗𝚢 𝚌𝚎𝚛𝚝𝚊𝚒𝚗 𝚏𝚒𝚕𝚎𝚜, 𝙿𝚕𝚎𝚊𝚜𝚎 𝚛𝚎𝚙𝚘𝚛𝚝 𝚞𝚜, 𝚠𝚎 𝚊𝚛𝚎 𝚛𝚎𝚊𝚍𝚢 𝚝𝚘 𝚛𝚎𝚖𝚘𝚟𝚎 𝚝𝚑𝚘𝚜𝚎 𝚌𝚘𝚗𝚝𝚎𝚗𝚝 𝚊𝚜 𝚜𝚘𝚘𝚗 𝚊𝚜 𝚠𝚎 𝚌𝚊𝚗!
-𝙰𝚍𝚖𝚒𝚗 𝙸𝚜 𝙽𝚘𝚝 𝚁𝚎𝚜𝚙𝚘𝚗𝚜𝚒𝚋𝚕𝚎 𝙵𝚘𝚛 𝚊𝚗𝚢 𝙳𝚒𝚛𝚎𝚌𝚝 & 𝚒𝚗𝚍𝚒𝚛𝚎𝚌𝚝 𝙿𝚛𝚘𝚏𝚒𝚝 𝚕𝚘𝚜𝚜""", show_alert=True)
+𝙰𝚍𝚖𝚒𝚗 𝙸𝚜 𝙽𝚘𝚝 𝚁𝚎𝚜𝚙𝚘𝚗𝚜𝚒𝚋𝚕𝚎 𝙵𝚘𝚛 𝚊𝚗𝚢 𝙳𝚒𝚛𝚎𝚌𝚝 & 𝚒𝚗𝚍𝚒𝚛𝚎𝚌𝚝 𝙿𝚛𝚘𝚏𝚒𝚝 𝚕𝚘𝚜𝚜 show_aler"""
     elif query.data == "stats":
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
@@ -672,9 +672,6 @@ async def auto_filter(client, msg, spoll=False):
     else:
         btn = [
              [
-               InlineKeyboardButton(
-                    'info',callback_data="infodc"),
-            [
                 InlineKeyboardButton(
                     text=f"{file.file_name}",
                     callback_data=f'{pre}#{file.file_id}',
@@ -684,7 +681,6 @@ async def auto_filter(client, msg, spoll=False):
                     callback_data=f'{pre}#{file.file_id}',
                 ),
             ]
-           ]
             for file in files
         ]
 
@@ -693,7 +689,7 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f" 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
+            [InlineKeyboardButton(text=f"[ 1/{math.ceil(int(total_results) / 10)}]", callback_data="pages"),
              InlineKeyboardButton(text="ຖēxt", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
