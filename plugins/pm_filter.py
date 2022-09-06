@@ -62,7 +62,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"⌖{get_size"➭"(file.file_size)} {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"✰{get_size(file.file_size)} ➣{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -399,6 +399,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
+      # f1 = await query.message.reply_text("Hy..")
+      # await asyncio.sleep(5)
+      # f2 = await f1.edit("my name is")
+     #  await asyncio.sleep(5)
+      # f3 = await f2.edit("meenakshi...")
+      # await asyncio.sleep(5)
+      # await f3.delete() This Function Is Not Be Use More
         buttons = [[
             InlineKeyboardButton('🖼️ Ott updates',url='https://t.me/MalayalamOTTUpdatesMvb'),
             InlineKeyboardButton('❗ Disclaimer ',callback_data='ddl')
@@ -653,7 +660,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"⌖{get_size"➭"(file.file_size)} {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"✰{get_size(file.file_size)}➣ {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
