@@ -62,7 +62,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"⌖{get_size➭(file.file_size)} {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -89,20 +89,20 @@ async def next_page(bot, query):
         off_set = offset - 5
     if n_offset == 0:
         btn.append(
-            [InlineKeyboardButton("βȺ↻Ҡ", callback_data=f"next_{req}_{key}_{off_set}"),
+            [InlineKeyboardButton("⭅βȺ↻Ҡ", callback_data=f"next_{req}_{key}_{off_set}"),
              InlineKeyboardButton(f" Pages {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}",
                                   callback_data="pages")]
         )
     elif off_set is None:
         btn.append(
-            [InlineKeyboardButton(f" {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
+            [InlineKeyboardButton(f"♜ {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
              InlineKeyboardButton("ຖēxt", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
-                InlineKeyboardButton("βȺ↻Ҡ", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton("⭅βȺ↻Ҡ", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f" {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
-                InlineKeyboardButton("ຖēxt", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("ຖēxt⭆", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
     try:
@@ -660,7 +660,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"⌖{get_size➭(file.file_size)} {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -685,8 +685,8 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"[ 1/{math.ceil(int(total_results) / 10)}]", callback_data="pages"),
-             InlineKeyboardButton(text="ຖēxt", callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"♜ 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
+             InlineKeyboardButton(text="ຖēxt⭆", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
@@ -768,7 +768,7 @@ async def advantage_spell_chok(msg):
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
     gs = list(filter(regex.match, g_s))
     gs_parsed = [re.sub(
-        r'\b(\-([a-zA-Z-\s])\-\simdb|(\-\s)?imdb|(\-\s)?wikipedia|\(|\)|\-|reviews|full|all|episode(s)?|film|movie|series)',
+        r'\b(\-([a-zA-Z-\s])\-\simdb|(\-\s)?imdb|(\-\s)?wikipedia|\(|\)|\-|reviews|full|all|undo|episode(s)?|film|movie|series)',
         '', i, flags=re.IGNORECASE) for i in gs]
     if not gs_parsed:
         reg = re.compile(r"watch(\s[a-zA-Z0-9_\s\-\(\)]*)*\|.*",
