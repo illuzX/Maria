@@ -62,7 +62,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f" ☢ {get_size(file.file_size)} ➣ {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f" 🛸{get_size(file.file_size)} ➣ {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -71,10 +71,10 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"🌍{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
                 InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}",
+                    text=f"🔴{get_size(file.file_size)}",
                     callback_data=f'files_#{file.file_id}',
                 ),
             ]
@@ -343,7 +343,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.exception(e)
             f_caption = f_caption
         if f_caption is None:
-            f_caption = f"{files.file_name}"
+            f_caption = f"🛸{files.file_name}"
 
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
@@ -424,11 +424,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer('Piracy Is Crime')
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('Manual Filter', callback_data='manuelfilter'),
-            InlineKeyboardButton('Auto Filter', callback_data='autofilter')
+            InlineKeyboardButton('😽Manual Filter', callback_data='manuelfilter'),
+            InlineKeyboardButton('🤡Auto Filter', callback_data='autofilter')
         ], [
-            InlineKeyboardButton('Connection', callback_data='coct'),
-            InlineKeyboardButton('Extra Mods', callback_data='extra')
+            InlineKeyboardButton('👽Connection', callback_data='coct'),
+            InlineKeyboardButton('⚙️Extra Mods', callback_data='extra')
         ], [
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔮 Status', callback_data='stats')
@@ -456,8 +456,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('Bot Updates', url='https://t.me/uzx_bots'),
-            InlineKeyboardButton('Git Source', callback_data='source')
+            InlineKeyboardButton('🍟Bot Updates', url='https://t.me/uzx_bots'),
+            InlineKeyboardButton('🛸Git Source', callback_data='source')
         ], [
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔐 Close', callback_data='close_data')
@@ -660,7 +660,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f" ☢ {get_size(file.file_size)} ➣ {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f" 🌍 {get_size(file.file_size)} ➣ {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -736,16 +736,16 @@ async def auto_filter(client, msg, spoll=False):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             jc=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(220)
+            await asyncio.sleep(120)
             await jc.delete()
         except Exception as e:
             logger.exception(e)
             mju=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(220)
+            await asyncio.sleep(120)
             await mju.delete()
     else:
         maju=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(220)
+        await asyncio.sleep(120)
         await maju.delete()
     if spoll:
         await msg.message.delete()
