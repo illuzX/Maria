@@ -1,6 +1,7 @@
 import logging
 import asyncio
-from pyrogram import Client, filters, enums
+from pyrogram import Client as robo, enums
+from pyrogram import filters as mics
 from pyrogram.errors import FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, ChatAdminRequired, UsernameInvalid, UsernameNotModified
 from info import ADMINS
@@ -14,15 +15,15 @@ logger.setLevel(logging.INFO)
 lock = asyncio.Lock()
 
 
-@Client.on_callback_query(filters.regex(r'^index'))
-async def index_files(uzx, query):
+@robo.on_callback_query(mics.regex(r'^index'))
+async def index_files(bot, query):
     if query.data.startswith('index_cancel'):
         temp.CANCEL = True
         return await query.answer("Cancelling Indexing")
     _, raju, chat, lst_msg_id, from_user = query.data.split("#")
     if raju == 'reject':
         await query.message.delete()
-        await uzx.send_message(int(from_user),
+        await bot.send_message(int(from_user),
                                f'Your Submission for indexing {chat} has been decliened by our moderators.',
                                reply_to_message_id=int(lst_msg_id))
         return
@@ -33,7 +34,7 @@ async def index_files(uzx, query):
 
     await query.answer('Processing...⏳', show_alert=True)
     if int(from_user) not in ADMINS:
-        await uzx.send_message(int(from_user),
+        await bot.send_message(int(from_user),
                                f'Your Submission for indexing {chat} has been accepted by our moderators and will be added soon.',
                                reply_to_message_id=int(lst_msg_id))
     await msg.edit(
@@ -46,11 +47,11 @@ async def index_files(uzx, query):
         chat = int(chat)
     except:
         chat = chat
-    await index_files_to_db(int(lst_msg_id), chat, msg, uzx)
+    await index_files_to_db(int(lst_msg_id), chat, msg, bot)
 
 
-@Client.on_message((filters.forwarded | (filters.regex("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")) & filters.text ) & filters.private & filters.incoming)
-async def send_for_index(uzx, message):
+@robo.on_message((mics.forwarded | (mics.regex("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")) & mics.text ) & mics.private & mics.incoming)
+async def send_for_index(bot, message):
     if message.text:
         regex = re.compile("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
         match = regex.match(message.text)
@@ -66,7 +67,7 @@ async def send_for_index(uzx, message):
     else:
         return
     try:
-        await uzx.get_chat(chat_id)
+        await bot.get_chat(chat_id)
     except ChannelInvalid:
         return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
     except (UsernameInvalid, UsernameNotModified):
@@ -75,7 +76,7 @@ async def send_for_index(uzx, message):
         logger.exception(e)
         return await message.reply(f'Errors - {e}')
     try:
-        k = await uzx.get_messages(chat_id, last_msg_id)
+        k = await bot.get_messages(chat_id, last_msg_id)
     except:
         return await message.reply('Make Sure That Iam An Admin In The Channel, if channel is private')
     if k.empty:
@@ -98,7 +99,7 @@ async def send_for_index(uzx, message):
 
     if type(chat_id) is int:
         try:
-            link = (await uzx.create_chat_invite_link(chat_id)).invite_link
+            link = (await bot.create_chat_invite_link(chat_id)).invite_link
         except ChatAdminRequired:
             return await message.reply('Make sure iam an admin in the chat and have permission to invite users.')
     else:
@@ -114,14 +115,14 @@ async def send_for_index(uzx, message):
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
-    await uzx.send_message(LOG_CHANNEL,
+    await bot.send_message(LOG_CHANNEL,
                            f'#IndexRequest\n\nBy : {message.from_user.mention} (<code>{message.from_user.id}</code>)\nChat ID/ Username - <code> {chat_id}</code>\nLast Message ID - <code>{last_msg_id}</code>\nInviteLink - {link}',
                            reply_markup=reply_markup)
     await message.reply('ThankYou For the Contribution, Wait For My Moderators to verify the files.')
 
 
-@Client.on_message(filters.command('setskip') & filters.user(ADMINS))
-async def set_skip_number(uzx, message):
+@robo.on_message(mics.command('setskip') & mics.user(ADMINS))
+async def set_skip_number(bot, message):
     if ' ' in message.text:
         _, skip = message.text.split(" ")
         try:
@@ -136,7 +137,7 @@ async def set_skip_number(uzx, message):
 async def __aiter__(self):
        return self.__wrapped__.__aiter__()
 
-async def index_files_to_db(lst_msg_id, chat, msg, uzx):
+async def index_files_to_db(lst_msg_id, chat, msg, bot):
     total_files = 0
     duplicate = 0
     errors = 0
@@ -147,7 +148,7 @@ async def index_files_to_db(lst_msg_id, chat, msg, uzx):
         try:
             current = temp.CURRENT
             temp.CANCEL = False
-            async for message in uzx.iter_messages(chat, lst_msg_id, temp.CURRENT):
+            async for message in bot.iter_messages(chat, lst_msg_id, temp.CURRENT):
                 if temp.CANCEL:
                     await msg.edit(f"Successfully Cancelled!!\n\nSaved <code>{total_files}</code> files to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>")
                     break
