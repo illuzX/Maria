@@ -1,4 +1,4 @@
-from pyrogram import filters, Client, enums
+from pyrogram import filters as Uzx, Client, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.connections_mdb import add_connection, all_connections, if_active, delete_connection
 from info import ADMINS
@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
 
-@Client.on_message((filters.private | filters.group) & filters.command('connect'))
+@Client.on_message((Uzx.private | Uzx.group) & Uzx.command('connect'))
 async def addconnection(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -72,14 +72,14 @@ async def addconnection(client, message):
                     quote=True
                 )
         else:
-            await message.reply_text("Add me as an admin in group", quote=True)
+            await message.reply_text("hy you Add me as an admin in this group", quote=True)
     except Exception as e:
         logger.exception(e)
         await message.reply_text('Some error occurred! Try again later.', quote=True)
         return
 
 
-@Client.on_message((filters.private | filters.group) & filters.command('disconnect'))
+@Client.on_message((Uzx.private | Uzx.group) & Uzx.command('disconnect'))
 async def deleteconnection(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -107,7 +107,7 @@ async def deleteconnection(client, message):
             await message.reply_text("This chat isn't connected to me!\nDo /connect to connect.", quote=True)
 
 
-@Client.on_message(filters.private & filters.command(["connections"]))
+@Client.on_message(Uzx.private & Uzx.command(["groups"]))
 async def connections(client, message):
     userid = message.from_user.id
 
