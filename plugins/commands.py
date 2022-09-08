@@ -420,7 +420,7 @@ async def settings(client, message):
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["botpm"] else '❌ No',
+                    '✅ ON' if settings["botpm"] else '❌ OFF',
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
             ],
@@ -430,7 +430,7 @@ async def settings(client, message):
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["file_secure"] else '❌ No',
+                    '✅ ON' if settings["file_secure"] else '❌ OFF',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
             ],
@@ -440,7 +440,7 @@ async def settings(client, message):
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["imdb"] else '❌ No',
+                    '✅ ON' if settings["imdb"] else '❌ OFF',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
             ],
@@ -450,7 +450,7 @@ async def settings(client, message):
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["spell_check"] else '❌ No',
+                    '✅ ON' if settings["spell_check"] else '❌ OFF',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
             ],
@@ -460,7 +460,7 @@ async def settings(client, message):
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["welcome"] else '❌ No',
+                    '✅ ON' if settings["welcome"] else '❌ No',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
             ],
