@@ -101,7 +101,7 @@ async def start(client, message):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-        await asyncio.sleep(10)
+        await asyncio.sleep(100)
         await kj.delete()
         return
     data = message.command[1]
@@ -283,7 +283,7 @@ async def channel_info(bot, message):
 async def log_file(bot, message):
     """Send log file"""
     try:
-        await message.reply_document('TelegramBot.log')
+        await message.reply_document('MeenuKuttyRobot.log')
     except Exception as e:
         await message.reply(str(e))
 
@@ -343,12 +343,12 @@ async def delete_all_index(bot, message):
             [
                 [
                     InlineKeyboardButton(
-                        text="YES", callback_data="autofilter_delete"
+                        text="YES☑️", callback_data="autofilter_delete"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        text="CANCEL", callback_data="close_data"
+                        text="CANCEL❌", callback_data="close_data"
                     )
                 ],
             ]
