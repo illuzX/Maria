@@ -53,7 +53,7 @@ async def next_page(bot, query):
     try:
         n_offset = int(n_offset)
     except:
-        n_offset = 5
+        n_offset = 10
 
     if not files:
         return
@@ -152,13 +152,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     title = chat.title
                 except:
                     await query.message.edit_text("Make sure I'm present in your group!!", quote=True)
-                    return await query.answer('Piracy Is Crime')
+                    return await query.answer('Prosessing...Request')
             else:
                 await query.message.edit_text(
                     "I'm not connected to any groups!\nCheck /connections or connect to any groups",
                     quote=True
                 )
-                return await query.answer('Piracy Is Crime')
+                return await query.answer('Prosessing...Request')
 
         elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
             grp_id = query.message.chat.id
@@ -219,7 +219,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=keyboard,
             parse_mode=enums.ParseMode.MARKDOWN
         )
-        return await query.answer('Piracy Is Crime')
+        return await query.answer('Prosessing...Request')
     elif "connectcb" in query.data:
         await query.answer()
 
@@ -240,7 +240,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             )
         else:
             await query.message.edit_text('Some error occurred!!', parse_mode=enums.ParseMode.MARKDOWN)
-        return await query.answer('Piracy Is Crime')
+        return await query.answer('Prosessing...Request')
     elif "disconnect" in query.data:
         await query.answer()
 
@@ -263,7 +263,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f"Some error occurred!!",
                 parse_mode=enums.ParseMode.MARKDOWN
             )
-        return await query.answer('Piracy Is Crime')
+        return await query.answer('Prosessing...Request')
     elif "deletecb" in query.data:
         await query.answer()
 
@@ -281,7 +281,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f"Some error occurred!!",
                 parse_mode=enums.ParseMode.MARKDOWN
             )
-        return await query.answer('Piracy Is Crime')
+        return await query.answer('Prosessing...Request')
     elif query.data == "backcb":
         await query.answer()
 
@@ -292,7 +292,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit_text(
                 "There are no active connections!! Connect to some groups first.",
             )
-            return await query.answer('Piracy Is Crime')
+            return await query.answer('Prosessing...Request')
         buttons = []
         for groupid in groupids:
             try:
@@ -421,7 +421,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         await asyncio.sleep(160)
         await kj.delete()
-        await query.answer('Piracy Is Crime')
+        await query.answer('Prosessing...Request')
     elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('😽Manual Filter', callback_data='manuelfilter'),
@@ -584,7 +584,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         if str(grp_id) != str(grpid):
             await query.message.edit("Your Active Connection Has Been Changed. Go To /settings.")
-            return await query.answer('Piracy Is Crime')
+            return await query.answer('Prosessing...Request')
 
         if status == "True":
             await save_group_settings(grpid, set_type, False)
@@ -631,7 +631,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
-    await query.answer('Piracy Is Crime')
+    await query.answer('Prosessing...Request')
 
 
 async def auto_filter(client, msg, spoll=False):
@@ -669,11 +669,11 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
              [
                 InlineKeyboardButton(
-                    text=f"☲{file.file_name}",
+                    text=f"❏  {file.file_name}",
                     callback_data=f'{pre}#{file.file_id}',
                 ),
                 InlineKeyboardButton(
-                    text=f"☲{get_size(file.file_size)}",
+                    text=f"☲ {get_size(file.file_size)}",
                     callback_data=f'{pre}#{file.file_id}',
                 ),
             ]
@@ -736,16 +736,16 @@ async def auto_filter(client, msg, spoll=False):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             jc=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(60)
+            await asyncio.sleep(160)
             await jc.delete()
         except Exception as e:
             logger.exception(e)
             mju=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(60)
+            await asyncio.sleep(160)
             await mju.delete()
     else:
         maju=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(60)
+        await asyncio.sleep(160)
         await maju.delete()
     if spoll:
         await msg.message.delete()
