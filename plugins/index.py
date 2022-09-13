@@ -53,7 +53,7 @@ async def index_files(bot, query):
 @robo.on_message((mics.forwarded | (mics.regex("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")) & mics.text ) & mics.private & mics.incoming)
 async def send_for_index(bot, message):
     if message.text:
-        regex = re.compile("(https://)?(t.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
+        regex = re.compile("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
         match = regex.match(message.text)
         if not match:
             return await message.reply('Invalid link')
@@ -62,7 +62,7 @@ async def send_for_index(bot, message):
         if chat_id.isnumeric():
             chat_id  = int(("-100" + chat_id))
     elif message.forward_from == enums.ChatType.CHANNEL:
-        last_msg_id = message.forward_from_message_id
+        last_msg_id = message.forward_from_message.id
         chat_id = message.forward_from_chat.Username or message.forward_from_chat.id
     else:
         return
