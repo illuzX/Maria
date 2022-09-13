@@ -1,7 +1,6 @@
 import logging
 import asyncio
-from pyrogram import Client as robo, enums
-from pyrogram import filters as mics
+from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, ChatAdminRequired, UsernameInvalid, UsernameNotModified
 from info import ADMINS
@@ -15,7 +14,7 @@ logger.setLevel(logging.INFO)
 lock = asyncio.Lock()
 
 
-@robo.on_callback_query(mics.regex(r'^index'))
+@Client.on_callback_query(filters.regex(r'^index'))
 async def index_files(bot, query):
     if query.data.startswith('index_cancel'):
         temp.CANCEL = True
@@ -50,7 +49,7 @@ async def index_files(bot, query):
     await index_files_to_db(int(lst_msg_id), chat, msg, bot)
 
 
-@robo.on_message((mics.forwarded | (mics.regex("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")) & mics.text ) & mics.private & mics.incoming)
+@Client.on_message((filters.forwarded | (filters.regex("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")) & filters.text ) & filters.private & filters.incoming)
 async def send_for_index(bot, message):
     if message.text:
         regex = re.compile("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
@@ -61,9 +60,9 @@ async def send_for_index(bot, message):
         last_msg_id = int(match.group(5))
         if chat_id.isnumeric():
             chat_id  = int(("-100" + chat_id))
-    elif message.forward_from == enums.ChatType.CHANNEL:
-        last_msg_id = message.forward_from_message.id
-        chat_id = message.forward_from_chat.Username or message.forward_from_chat.id
+    elif message.forward_from_chat.type == enums.ChatType.CHANNEL:
+        last_msg_id = message.forward_from_message_id
+        chat_id = message.forward_from_chat.username or message.forward_from_chat.id
     else:
         return
     try:
@@ -121,7 +120,7 @@ async def send_for_index(bot, message):
     await message.reply('ThankYou For the Contribution, Wait For My Moderators to verify the files.')
 
 
-@robo.on_message(mics.command('setskip') & mics.user(ADMINS))
+@Client.on_message(filters.command('setskip') & filters.user(ADMINS))
 async def set_skip_number(bot, message):
     if ' ' in message.text:
         _, skip = message.text.split(" ")
@@ -133,9 +132,7 @@ async def set_skip_number(bot, message):
         temp.CURRENT = int(skip)
     else:
         await message.reply("Give me a skip number")
-        
-async def __aiter__(self):
-       return self.__wrapped__.__aiter__()
+
 
 async def index_files_to_db(lst_msg_id, chat, msg, bot):
     total_files = 0
@@ -165,7 +162,7 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                 elif not message.media:
                     no_media += 1
                     continue
-                elif message.media not in [enums.MessageMediaType.DOCUMENT, enums.MessageMediaType.AUDIO, enums.MessageMediaType.VIDEO]:
+                elif message.media not in [enums.MessageMediaType.VIDEO, enums.MessageMediaType.AUDIO, enums.MessageMediaType.DOCUMENT]:
                     unsupported += 1
                     continue
                 media = getattr(message, message.media.value, None)
