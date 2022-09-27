@@ -70,12 +70,9 @@ async def next_page(bot, query):
     else:
         btn = [
             [
+              
                 InlineKeyboardButton(
-                    text=f"☰{file.file_name}", callback_data=f'files#{file.file_id}'
-                ),
-                InlineKeyboardButton(
-                    text=f"☲{get_size(file.file_size)}",
-                    callback_data=f'files_#{file.file_id}',
+                    text=f" ❏ {get_size(file.file_size)} ➣ {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -117,6 +114,8 @@ async def next_page(bot, query):
 @Client.on_callback_query(filters.regex(r"^spolling"))
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
+    if int(user) != 0 and query.from_user.id != int(user):
+        return await query.answer("Mhan ❤️ Thats Not for you",show_alert=True)
     if movie_ == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.id)
@@ -414,8 +413,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        kj=await query.message.edit_text(
-            text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
+        kj=await query.message.edit_photo(
+            photo=random.choice(PICS),photo=random.choice(PICS),
+            caption=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -463,8 +463,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🔐 Close', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.ABOUT_TXT.format(temp.B_NAME),
+        await query.message.edit_photo(
+            photo=random.choice(PICS),
+            caption=script.ABOUT_TXT.format(temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -474,8 +475,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('👩‍🦯 Back', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.SOURCE_TXT,
+        await query.message.edit_photo(
+            photo=random.choice(PICS),
+            caption=script.SOURCE_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -668,13 +670,9 @@ async def auto_filter(client, msg, spoll=False):
     else:
         btn = [
              [
+                
                 InlineKeyboardButton(
-                    text=f"❏  {file.file_name}",
-                    callback_data=f'{pre}#{file.file_id}',
-                ),
-                InlineKeyboardButton(
-                    text=f"☲ {get_size(file.file_size)}",
-                    callback_data=f'{pre}#{file.file_id}',
+                    f" ❏ {get_size(file.file_size)} ➣ {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -736,16 +734,16 @@ async def auto_filter(client, msg, spoll=False):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             jc=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(160)
+            await asyncio.sleep(240)
             await jc.delete()
         except Exception as e:
             logger.exception(e)
             mju=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(160)
+            await asyncio.sleep(240)
             await mju.delete()
     else:
         maju=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(160)
+        await asyncio.sleep(240)
         await maju.delete()
     if spoll:
         await msg.message.delete()
