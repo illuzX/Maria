@@ -1,6 +1,6 @@
 class script(object):
     START_TXT = """ Hy👋🏻 {}\t
- My name is  <a href=https://t.me/{}>{}</a>, \t or you can call me as  Auto Filter Bot, \t"What is my use ?"\n i can provide movies in any groups (Admin privilege) You also can add me in your' groups and make me as a admin then you can see my power  """
+My name is  <a href=https://t.me/{}>{}</a>,or you can call me as  Auto Filter Bot, \n"What is my use ?"\n i can provide movies in any groups (Admin privilege) You also can add me in your' groups and make me as a admin then you can see my power  """
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
