@@ -1,10 +1,10 @@
 class script(object):
-    START_TXT = """ Hy👋🏻 {}\n
- ✨Iam a advanced Robot For Filter Files  made with Python  Click  on help button To know how to use """
+    START_TXT = """ Hy👋🏻 {}\t
+ ✨My name is  <a href=https://t.me/{}>{}</a>,or  you can call me as  Auto Filter Bot! \t"What is my use ?"\n i can provide movies in any groups (Admin privilege) You also can add me in your' groups and make me as a admin then you can see my power  """
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
-•>C𝚁𝙴𝙰𝚃𝙾𝚁: <a href=https://t.me/illuzX3>𝐈𝐥𝐥𝐮𝐳𝕏</a>
+•>Coded By: <a href=https://t.me/illuzX3>𝐈𝐥𝐥𝐮𝐳𝕏</a>
 •>L𝙸B𝚁𝙰𝚁Y: 𝙿Y𝚁𝙾G𝚁A𝙼 2.0.35
 •>L𝙰N𝙶𝚄A𝙶E: 𝙿Y𝚃𝙷Ø𝙽 3+
 •>D𝙰𝚃AB𝙰S𝙴: M𝙾𝙽G𝙾 D𝙱
