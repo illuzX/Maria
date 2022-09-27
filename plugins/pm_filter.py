@@ -463,7 +463,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🔐 Close', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_photo(
+        await query.message.reply_photo(
             photo=random.choice(PICS),
             caption=script.ABOUT_TXT.format(temp.B_NAME),
             reply_markup=reply_markup,
@@ -475,7 +475,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('👩‍🦯 Back', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_photo(
+        await query.message.reply_photo(
             photo=random.choice(PICS),
             caption=script.SOURCE_TXT,
             reply_markup=reply_markup,
