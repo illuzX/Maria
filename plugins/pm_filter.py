@@ -414,7 +414,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         kj=await query.message.edit_photo(
-            photo=random.choice(PICS),photo=random.choice(PICS),
+            photo=random.choice(PICS),
             caption=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -672,7 +672,7 @@ async def auto_filter(client, msg, spoll=False):
              [
                 
                 InlineKeyboardButton(
-                   text=f" ❏ {get_size(file.file_size)} ➣ {file.file_name}", callback_data=f'files#{file.file_id}'
+                    f" ❏ {get_size(file.file_size)} ➣ {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
