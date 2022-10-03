@@ -1,4 +1,3 @@
-# Kanged From @TroJanZheX
 import asyncio
 import re
 import ast
@@ -43,7 +42,7 @@ async def next_page(bot, query):
     try:
         offset = int(offset)
     except:
-        offset = 5
+        offset = 10
     search = BUTTONS.get(key)
     if not search:
         await query.answer("You are using one of my old messages, please send the request again.", show_alert=True)
@@ -78,12 +77,12 @@ async def next_page(bot, query):
             for file in files
         ]
 
-    if 0 < offset <= 5:
+    if 0 < offset <= 10:
         off_set = 0
     elif offset == 0:
         off_set = None
     else:
-        off_set = offset - 5
+        off_set = offset - 10
     if n_offset == 0:
         btn.append(
             [InlineKeyboardButton("⭅βȺ↻Ҡ", callback_data=f"next_{req}_{key}_{off_set}"),
@@ -131,7 +130,7 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             k = await query.message.edit('ഈ സിനിമ ഡാറ്റാബേസിൽ കാണുന്നില്ല അല്ലെങ്കിൽ ഇത് OTT റിലീസ് ചെയ്തിട്ടില്ല\n\nThis Movie Not Found In DataBase Or This Is Not Released in OTT')
-            await asyncio.sleep(20)
+            await asyncio.sleep(60)
             await k.delete()
 
 
@@ -640,7 +639,7 @@ async def auto_filter(client, msg, spoll=False):
         if message.text.startswith("/"): return  # ignore commands
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
-        if 2 < len(message.text) < 100:
+        if 4 < len(message.text) < 100:
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
@@ -730,18 +729,12 @@ async def auto_filter(client, msg, spoll=False):
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            jc=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(240)
-            await jc.delete()
+            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
         except Exception as e:
             logger.exception(e)
-            mju=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(240)
-            await mju.delete()
+            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     else:
-        maju=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(240)
-        await maju.delete()
+        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
         
@@ -757,7 +750,7 @@ async def advantage_spell_chok(msg):
     gs_parsed = []
     if not g_s:
         k = await msg.reply("I couldn't find any movie in that name.\n\nആ പേരിൽ ഒരു സിനിമയും എനിക്ക് കണ്ടെത്താൻ കഴിഞ്ഞില്ല")
-        await asyncio.sleep(18)
+        await asyncio.sleep(40)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -786,7 +779,7 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         k = await msg.reply("I couldn't find anything related to that. Check your spelling\n\nഎനിക്ക് അതുമായി ബന്ധപ്പെട്ട ഒന്നും കണ്ടെത്താൻ കഴിഞ്ഞില്ല. നിങ്ങളുടെ അക്ഷരവിന്യാസം പരിശോധിക്കുക")
-        await asyncio.sleep(3)
+        await asyncio.sleep(5)
         await k.delete()
         return
     SPELL_CHECK[msg.id] = movielist
@@ -822,34 +815,32 @@ async def manual_filters(client, message, text=False):
                             await client.send_message(group_id, reply_text, disable_web_page_preview=True)
                         else:
                             button = eval(btn)
-                            rmv=await client.send_message(
+                            =await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(100)
-                            await rmv.delete()
+                            #await asyncio.sleep(100)
+                            #await rmv.delete()
                     elif btn == "[]":
-                        rv=await client.send_cached_media(
+                        await client.send_cached_media(
                             group_id,
                             fileid,
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(100)
-                        await rv.delete()
                     else:
                         button = eval(btn)
-                        rm=await message.reply_cached_media(
+                        await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(10)
-                        await rm.delete()
+                       # await asyncio.sleep(10)
+                      #  await rm.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
