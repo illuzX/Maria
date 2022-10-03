@@ -815,7 +815,7 @@ async def manual_filters(client, message, text=False):
                             await client.send_message(group_id, reply_text, disable_web_page_preview=True)
                         else:
                             button = eval(btn)
-                            =await client.send_message(
+                            await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
