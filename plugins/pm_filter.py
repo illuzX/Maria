@@ -845,4 +845,5 @@ async def manual_filters(client, message, text=False):
                     logger.exception(e)
                 break
     else:
-        return False
+        await query.answer("oops something want wrong",show_alert=True)
+        
