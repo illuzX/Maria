@@ -359,8 +359,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 await query.answer('Check PM, I have sent files in pm\n\nPM പരിശോധിക്കുക, നിങ്ങളുടെ pm-ൽ ഞാൻ ഫയലുകൾ അയച്ചിട്ടുണ്ട്', show_alert=True)
 else:
-  await query.answer("ookda,", show_alert=True)
-  return
+    await query.answer("ookda,", show_alert=True)
+    return
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
         except PeerIdInvalid:
