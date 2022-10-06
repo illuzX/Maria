@@ -358,9 +358,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True if ident == "filep" else False 
                 )
                 await query.answer('Check PM, I have sent files in pm\n\nPM പരിശോധിക്കുക, നിങ്ങളുടെ pm-ൽ ഞാൻ ഫയലുകൾ അയച്ചിട്ടുണ്ട്', show_alert=True)
-else:
-    await query.answer("ookda,", show_alert=True)
-    return
+#else:
+  #  await query.answer("ookda,", show_alert=True)
+  #  return
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
         except PeerIdInvalid:
@@ -844,6 +844,5 @@ async def manual_filters(client, message, text=False):
                       #  await rm.delete()
                 except Exception as e:
                     logger.exception(e)
-                break
     else:
-        return False
+        await query.answer("Okda", show_alert=True)
