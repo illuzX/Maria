@@ -844,5 +844,6 @@ async def manual_filters(client, message, text=False):
                       #  await rm.delete()
                 except Exception as e:
                     logger.exception(e)
+                break
     else:
-        await query.answer("Okda", show_alert=True)
+        return False
