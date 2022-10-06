@@ -630,6 +630,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
     await query.answer('Prosessing...Request')
+    else:
+        await query.answer("Please Request",show_alert=True)
 
 
 async def auto_filter(client, msg, spoll=False):
@@ -845,5 +847,4 @@ async def manual_filters(client, message, text=False):
                     logger.exception(e)
                 break
     else:
-        await message.answer("oops something want wrong",show_alert=True)
-        
+        return False
