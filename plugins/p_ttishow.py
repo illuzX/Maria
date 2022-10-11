@@ -53,7 +53,7 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply(f"<b>Hey , {u.mention}, Welcome to {message.chat.title}</b>\n\n ⚙️Here is some rules in this {message.chat.title}rules Must Follow this \n\n•Use English Only To Request\n•Don't Spam With Multiple requests!\n•Only OTT Movies Available in this group\nThank you 👮🏼")
+                temp.MELCOW['welcome'] = await message.reply(f"<b>Hey , {u.mention}, Welcome to {message.chat.title}</b>\n\n ⚙️Here is some rules in this {message.chat.title}\t Must Follow this \n\n•Use English Only\n•Don't Spam With Multiple requests!\n•Only OTT Movies Available in this group\n\t@mvbzzer🎬Thank you 👮🏼")
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
@@ -72,7 +72,7 @@ async def leave_a_chat(bot, message):
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b>',
+            text='<b>Hello Friends, \nMy admin has told me to leave from this group so i go! If you wanna add me again? contact my support group.</b>',
             reply_markup=reply_markup,
         )
 
@@ -141,7 +141,7 @@ async def re_enable_chat(bot, message):
 async def get_ststs(bot, message):
     if message.from_user.id not in ADMINS:
         await message.delete()
-    rju = await message.reply('Aʏᴏ Aʏᴏ 😬..')
+    rju = await message.reply('Aʏᴏ Aʏᴏ 👮🏼..')
     total_users = await db.total_users_count()
     totl_chats = await db.total_chat_count()
     files = await Media.count_documents()
