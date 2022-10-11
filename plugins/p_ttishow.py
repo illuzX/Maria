@@ -53,7 +53,7 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply(f"<b>Hey , {u.mention}, Welcome to {message.chat.title}</b>")
+                temp.MELCOW['welcome'] = await message.reply(f"<b>Hey , {u.mention}, Welcome to {message.chat.title}</b>\n\n ⚙️Here is some rules in this {message.chat.title}rules Must Follow this \n\n•Use English Only To Request\n•Don't Spam With Multiple requests!\n•Only OTT Movies Available in this group\nThank you 👮🏼")
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
@@ -67,7 +67,7 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/uzx_bots')
+            InlineKeyboardButton('🔧Support👮🏼', url=f'https://t.me/uzx_bots')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
