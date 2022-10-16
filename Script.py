@@ -1,6 +1,7 @@
 class script(object):
     START_TXT = """ Hy👋🏻 {}\t
-My name is  <a href=https://t.me/{}>{}</a>,or you can call me as  Auto Filter Bot, \n"What is my use ?"\n i can provide movies in any groups (Admin privilege) You also can add me in your' groups and make me as a admin then you can see my power  """
+My name is  <a href=https://t.me/{}>{}</a>,or 
+[Join In Our Group](https://t.me/+Y1sfpvW0P9FjZWQ1) 😌 For Get Movies"""
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
@@ -10,16 +11,16 @@ My name is  <a href=https://t.me/{}>{}</a>,or you can call me as  Auto Filter Bo
 •>D𝙰𝚃AB𝙰S𝙴: M𝙾𝙽G𝙾 D𝙱
 •>H𝙾S𝚃S𝙴R𝚅𝙴R: HᴇRᴏᴋᴜ / Vᴘs
 •>Bᴀsᴇ Rᴇᴘᴏ : <a href=https://github.com/EvamariaTG>Eᴠᴀ Mᴀʀɪᴀ</a>
-•>Bᴜɪʟᴅ Sᴛᴀᴛᴜs :> .0.1F</a>
+•>Bᴜɪʟᴅ Sᴛᴀᴛᴜs :> 1.0.-A</a>
 """
-    SOURCE_TXT = """
-- <a href=https://t.me/TeamEvamaria>Eva Maria</a>
-- <a href=https://t.me/Grayhathacker767>IlluZx</a>
-**Disclaimer**\n
-im Not Owner Of This Source Code I Just Modified Some Modules so Its A Clone Project \n
-<b>DEVS:</b>\n
-- <a href=https://github.com/illuzX>𝐈𝐥𝐥𝐮𝐳𝕏</a>
-- <a href=https://github.com/EvamariaTG>Eva Maria </a>"""
+  #  SOURCE_TXT = """
+#- <a href=https://t.me/TeamEvamaria>Eva Maria</a>
+#- <a href=https://t.me/Grayhathacker767>IlluZx</a>
+#**Disclaimer**\n
+#im Not Owner Of This Source Code I Just Modified Some Modules so Its A Clone Project \n
+#<b>DEVS:</b>\n
+#- <a href=https://github.com/illuzX>𝐈𝐥𝐥𝐮𝐳𝕏</a>
+#- <a href=https://github.com/EvamariaTG>Eva Maria </a>"""
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
 - Filter is the feature were users can set automated replies for a particularkeyword and
