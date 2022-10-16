@@ -1,7 +1,7 @@
 class script(object):
     START_TXT = """ Hy👋🏻 {}\t
 My name is  <a href=https://t.me/{}>{}</a>,or 
-[Join In Our Group](https://t.me/+Y1sfpvW0P9FjZWQ1) 😌 For Get Movies"""
+<a href=https://t.me/+Y1sfpvW0P9FjZWQ1>JOIN IN OUR GROUP</a> 😌 For Get Movies"""
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
