@@ -1,7 +1,7 @@
 class script(object):
-    START_TXT = """ ʜʏ👋🏻 {}\t
-Mʏ Nᴀᴍᴇ Is  <a href=https://t.me/{}>{}</a> ,ɪ Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇs, Jᴜsᴛ Jᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ\n\n
-ᴍᴀɪɴᴛᴀɪɴɪɴɢ : <a href=https://t.me/uzx_bots>Uᴢ� Bᴏᴛs</a>"""
+    START_TXT = """ Hʏ👋🏻 {}\t
+Mʏ Nᴀᴍᴇ Is  <a href=https://t.me/{}>{}</a>  ,I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇs, Jᴜsᴛ Jᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ\n
+ᴍᴀɪɴᴛᴀɪɴɪɴɢ : <a href=https://t.me/uzx_bots>Uᴢ𝕏 ʙᴏᴛs</a>"""
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
