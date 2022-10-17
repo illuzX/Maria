@@ -129,7 +129,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('ഈ സിനിമ ഡാറ്റാബേസിൽ കാണുന്നില്ല അല്ലെങ്കിൽ ഇത് OTT റിലീസ് ചെയ്തിട്ടില്ല\n\nThis Movie Not Found In DataBase Or This Is Not Released in OTT')
+            k = await query.message.edit('This Movie Not Found In DataBase Or This Is Not Released in OTT')
             await asyncio.sleep(60)
             await k.delete()
 
@@ -357,7 +357,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
-                await query.answer('Check PM, I have sent files in pm\n\nPM പരിശോധിക്കുക, നിങ്ങളുടെ pm-ൽ ഞാൻ ഫയലുകൾ അയച്ചിട്ടുണ്ട്', show_alert=True)
+                await query.answer('Check PM, I have sent files in pm' ,show_alert=True')
 #else:
   #  await query.answer("ookda,", show_alert=True)
   #  return
@@ -407,11 +407,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
       # await asyncio.sleep(5)
       # await f3.delete() This Function Is Not Be Use More
         buttons = [[
-            InlineKeyboardButton('🖼️ Ott updates',url='https://t.me/MalayalamOTTUpdatesMvb'),
-            InlineKeyboardButton('❗ Disclaimer ',callback_data='ddl')
+            InlineKeyboardButton(' Join To Group ',url='https://t.me/+Y1sfpvW0P9FjZWQ1')
         ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
+            InlineKeyboardButton('Join OTT Updates', url'https://t.me/+iZz-bQxUotgzZGNl'),
+            InlineKeyboardButton(' Disclaimer ',callback_data='ddl')
+        ],[
+            InlineKeyboardButton(' Help ', callback_data='help'),
+            InlineKeyboardButton(' About ', callback_data='about')
+        ],[
+           InlineKeyboardButton('Add Me To Your Groups',url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         kj=await query.message.edit_text(
