@@ -16,12 +16,12 @@ This is a advance Auto filter bot,with imdb support\ni can do multiple things! m
     
 - add this bot as a admin in you're group 
 - after you need to send this command in youre group /connect"""
-    SETTINGS_CMD"""<b>settings:</b>
+    SETTINGS_CMD = """<b>settings:</b>
 - use /settings command in bot pm !
 - configure bot in you're group how want to perform 
 - if no need imdb filter picture then turn off it !
 - double button filter button no more works ! 
-- this settings module rest every day so note it """
+- this settings module rest every day so note it"""
 
 
     MANUELFILTER_TXT = """Help: <b>Filters</b>
