@@ -409,7 +409,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton(' Join To Group ',url='https://t.me/+Y1sfpvW0P9FjZWQ1')
         ],[
-            InlineKeyboardButton('Join OTT Updates', url'https://t.me/+iZz-bQxUotgzZGNl'),
+            InlineKeyboardButton('Join OTT Updates', url='https://t.me/+iZz-bQxUotgzZGNl'),
             InlineKeyboardButton(' Disclaimer ',callback_data='ddl')
         ],[
             InlineKeyboardButton(' Help ', callback_data='help'),
