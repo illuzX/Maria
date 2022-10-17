@@ -45,6 +45,7 @@ async def start(client, message):
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('⚙️Help Module🔧 ', callback_data='help'),
+        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         kj=await message.reply_photo(
             photo=random.choice(STAMP),
