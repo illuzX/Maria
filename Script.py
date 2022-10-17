@@ -1,8 +1,6 @@
 class script(object):
     START_TXT = """ Hy👋🏻 {}\t
-My name is  <a href=https://t.me/{}>{}</a>,or 
-
-<a href=https://t.me/+Y1sfpvW0P9FjZWQ1>JOIN IN OUR GROUP</a> 😌 For Get Movies"""
+This is a advance Auto filter bot,with imdb support\ni can do multiple things! media to links \n,search inline media,store movies in database With help of mongoDb\nban users ,etc..Click The help module to know more \n\n Maintained by @uzx_bots"""
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
@@ -14,16 +12,20 @@ My name is  <a href=https://t.me/{}>{}</a>,or
 •>Bᴀsᴇ Rᴇᴘᴏ : <a href=https://github.com/EvamariaTG>Eᴠᴀ Mᴀʀɪᴀ</a>
 •>Bᴜɪʟᴅ Sᴛᴀᴛᴜs :> 1.0.-A</a>
 """
-  #  SOURCE_TXT = """
-#- <a href=https://t.me/TeamEvamaria>Eva Maria</a>
-#- <a href=https://t.me/Grayhathacker767>IlluZx</a>
-#**Disclaimer**\n
-#im Not Owner Of This Source Code I Just Modified Some Modules so Its A Clone Project \n
-#<b>DEVS:</b>\n
-#- <a href=https://github.com/illuzX>𝐈𝐥𝐥𝐮𝐳𝕏</a>
-#- <a href=https://github.com/EvamariaTG>Eva Maria </a>"""
-    MANUELFILTER_TXT = """Help: <b>Filters</b>
+    OWN_BOT_TXT = """ <b>How I Own This Bot ? </b>
+    
+- add this bot as a admin in you're group 
+- after you need to send this command in youre group /connect"""
+    SETTINGS_CMD"""<b>settings:</b>
+- use /settings command in bot pm !
+- configure bot in you're group how want to perform 
+- if no need imdb filter picture then turn off it !
+- double button filter button no more works ! 
+- this settings module rest every day so note it """
 
+
+    MANUELFILTER_TXT = """Help: <b>Filters</b>
+    
 - Filter is the feature were users can set automated replies for a particularkeyword and
   meenu will respond whenever a keywordfound the message
 
