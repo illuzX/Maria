@@ -129,7 +129,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('ഈ സിനിമ ഡാറ്റാബേസിൽ കാണുന്നില്ല അല്ലെങ്കിൽ ഇത് OTT റിലീസ് ചെയ്തിട്ടില്ല\n\nThis Movie Not Found In DataBase Or This Is Not Released in OTT')
+            k = await query.message.edit(f'{search} Movie Not Found In DataBase Or This Is Not The Name Of Movie Please Check Google Or {search} not Released in OTT')
             await asyncio.sleep(60)
             await k.delete()
 
@@ -357,7 +357,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
-                await query.answer('Check PM, I have sent files in pm\n\nPM പരിശോധിക്കുക, നിങ്ങളുടെ pm-ൽ ഞാൻ ഫയലുകൾ അയച്ചിട്ടുണ്ട്', show_alert=True)
+                await query.answer('Check PM, I have sent files in pm', show_alert=True)
 #else:
   #  await query.answer("ookda,", show_alert=True)
   #  return
@@ -407,11 +407,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
       # await asyncio.sleep(5)
       # await f3.delete() This Function Is Not Be Use More
         buttons = [[
-            InlineKeyboardButton('🖼️ Ott updates',url='https://t.me/MalayalamOTTUpdatesMvb'),
-            InlineKeyboardButton('❗ Disclaimer ',callback_data='ddl')
+            InlineKeyboardButton('Ott Updates',url='https://t.me/MalayalamOTTUpdatesMvb'),
+            InlineKeyboardButton('Join Group',callback_data='ddl')
         ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
+            InlineKeyboardButton('Help', callback_data='help'),
+            InlineKeyboardButton('About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         kj=await query.message.edit_text(
@@ -424,14 +424,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer('Prosessing...Request')
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('😽Manual Filter', callback_data='manuelfilter'),
-            InlineKeyboardButton('🤡Auto Filter', callback_data='autofilter')
+            InlineKeyboardButton('Manual Filter', callback_data='manuelfilter'),
+            InlineKeyboardButton('Auto Filter', callback_data='autofilter')
         ], [
-            InlineKeyboardButton('👽Connection', callback_data='coct'),
-            InlineKeyboardButton('⚙️Extra Mods', callback_data='extra')
+            InlineKeyboardButton('Connection', callback_data='coct'),
+            InlineKeyboardButton('Extra Mods', callback_data='extra')
         ], [
-            InlineKeyboardButton('🏠 Home', callback_data='start'),
-            InlineKeyboardButton('🔮 Status', callback_data='stats')
+            InlineKeyboardButton('Home', callback_data='start'),
+            InlineKeyboardButton('Status', callback_data='stats')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -475,7 +475,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.SOURCE_TXT,
+            text=script.SORCE_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -791,7 +791,7 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    ub=await msg.reply( "എനിക്ക് അതുമായി ബന്ധപ്പെട്ട ഒന്നും കണ്ടെത്താൻ കഴിഞ്ഞില്ല നിങ്ങൾ ഇതിൽ ഏതെങ്കിലും ഒന്നാണോ ഉദ്ദേശിച്ചത്? \n\n I couldn't find anything related to that\nDid you mean any one of these?",
+    ub=await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?",
                     reply_markup=InlineKeyboardMarkup(btn))
 
        

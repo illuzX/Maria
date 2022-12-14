@@ -1,22 +1,30 @@
 class script(object):
-    START_TXT = """ Hʏ👋🏻 {}\t
-Mʏ Nᴀᴍᴇ Is  <a href=https://t.me/{}>{}</a>  ,I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇs, Jᴜsᴛ Jᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ\n
+    START_TXT = """ Hai 👋🏻 {}\t
+my name is <a href=https://t.me/{}>{}</a>, I Can provide Movies,Series and more for you  
+To get movies or Series  U must need to join My Group!\n
+Or Add Me In you' Group As "ADMIN"   
 ᴍᴀɪɴᴛᴀɪɴɪɴɢ : <a href=https://t.me/uzx_bots>Uᴢ𝕏 ʙᴏᴛs</a>"""
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
 •>Coded By: <a href=https://t.me/illuzX3>𝐈𝐥𝐥𝐮𝐳𝕏</a>
 •>L𝙸B𝚁𝙰𝚁Y: 𝙿Y𝚁𝙾G𝚁A𝙼 2.0.35
-•>L𝙰N𝙶𝚄A𝙶E: 𝙿Y𝚃𝙷Ø𝙽 3+
+•>L𝙰N𝙶𝚄A𝙶E: 𝙿Y𝚃𝙷Ø𝙽 3.8.7
 •>D𝙰𝚃AB𝙰S𝙴: M𝙾𝙽G𝙾 D𝙱
-•>H𝙾S𝚃S𝙴R𝚅𝙴R: HᴇRᴏᴋᴜ / Vᴘs
+•>H𝙾S𝚃S𝙴R𝚅𝙴R: HᴇRᴏᴋᴜ
 •>Bᴀsᴇ Rᴇᴘᴏ : <a href=https://github.com/EvamariaTG>Eᴠᴀ Mᴀʀɪᴀ</a>
-•>Bᴜɪʟᴅ Sᴛᴀᴛᴜs :> 1.0.-A</a>
+•>Bᴜɪʟᴅ Sᴛᴀᴛᴜs :> 1.2.5F</a>
 """
     OWN_BOT_TXT = """ <b>How I Own This Bot ? </b>
     
 - add this bot as a admin in you're group 
 - after you need to send this command in youre group /connect"""
+
+    SORCE_TXT = """ 
+
+- Soon Update Here 
+- @uzx_bots you can find here ask """
+
     SETTINGS_CMD = """<b>settings:</b>
 - use /settings command in bot pm !
 - configure bot in you're group how want to perform 

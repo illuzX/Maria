@@ -141,7 +141,7 @@ async def re_enable_chat(bot, message):
 async def get_ststs(bot, message):
     if message.from_user.id not in ADMINS:
         await message.delete()
-    rju = await message.reply('Aʏᴏ Aʏᴏ 👮🏼..')
+    rju = await message.reply('Request Sending To Database..')
     total_users = await db.total_users_count()
     totl_chats = await db.total_chat_count()
     files = await Media.count_documents()
