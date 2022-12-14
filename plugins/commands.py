@@ -90,8 +90,10 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('🖼️ Ott updates',url='https://t.me/MalayalamOTTUpdatesMvb'),
-            InlineKeyboardButton('❗ Disclaimer', callback_data='ddl')
+            InlineKeyboardButton('⚡ Join Group', url='https://t.me/mvb_tg')
+        ], [
+            InlineKeyboardButton('🖼️ Ott Updates',url='https://t.me/MalayalamOTTUpdatesMvb'),
+            InlineKeyboardButton('❌ Disclaimer', callback_data='ddl')
             ],[
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')

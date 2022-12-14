@@ -129,7 +129,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit(f'{search} Movie Not Found In DataBase Or This Is Not The Name Of Movie Please Check Google Or {search} not Released in OTT')
+            k = await query.message.edit('Movie Not Found In DataBase Or This Is Not The Name Of Movie Please Check Google Or {search} not Released in OTT')
             await asyncio.sleep(60)
             await k.delete()
 
@@ -407,11 +407,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
       # await asyncio.sleep(5)
       # await f3.delete() This Function Is Not Be Use More
         buttons = [[
-            InlineKeyboardButton('Ott Updates',url='https://t.me/MalayalamOTTUpdatesMvb'),
-            InlineKeyboardButton('Join Group',callback_data='ddl')
-        ],[
-            InlineKeyboardButton('Help', callback_data='help'),
-            InlineKeyboardButton('About', callback_data='about')
+            InlineKeyboardButton('⚡ Join Group', url='https://t.me/mvb_tg')
+        ], [
+            InlineKeyboardButton('🖼️ Ott Updates',url='https://t.me/MalayalamOTTUpdatesMvb'),
+            InlineKeyboardButton('❌ Disclaimer', callback_data='ddl')
+            ],[
+            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
+            InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         kj=await query.message.edit_text(
@@ -424,13 +426,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer('Prosessing...Request')
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('Manual Filter', callback_data='manuelfilter'),
-            InlineKeyboardButton('Auto Filter', callback_data='autofilter')
+            InlineKeyboardButton('☮ Manual Filter', callback_data='manuelfilter'),
+            InlineKeyboardButton('🤍 Auto Filter', callback_data='autofilter')
         ], [
-            InlineKeyboardButton('Connection', callback_data='coct'),
-            InlineKeyboardButton('Extra Mods', callback_data='extra')
+            InlineKeyboardButton('💤 Connection', callback_data='coct'),
+            InlineKeyboardButton('💟 Extra Mods', callback_data='extra')
         ], [
-            InlineKeyboardButton('Home', callback_data='start'),
+            InlineKeyboardButton('🎪 Home', callback_data='start'),
             InlineKeyboardButton('Status', callback_data='stats')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
