@@ -7,4 +7,4 @@ marshmallow==3.14.1
 umongo==3.0.1
 requests
 bs4
-https://github.com/illuzX/cinemagoer.git
+git@github.com:illuzX/cinemagoer
