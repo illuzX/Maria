@@ -44,8 +44,10 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('🖼️ Ott updates',url='https://t.me/malayalamOTTupdatesMvb'),
-            InlineKeyboardButton('❗ Disclaimer', callback_data='ddl')
+            InlineKeyboardButton('⚡ Join Group' ,url='https://t.me/mvb_tg')
+         ],[
+            InlineKeyboardButton('🖼️ Ott Updates',url='https://t.me/malayalamOTTupdatesMvb'),
+            InlineKeyboardButton('❌ Disclaimer', callback_data='ddl')
             ],[
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
