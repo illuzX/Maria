@@ -724,7 +724,6 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        poster = pic.replace(POSTER_PIC) 
         cap = f"Here is what i found for your query <spoiler>**{search}**</spoiler>"
     if imdb and imdb.get('poster'):
         try:
