@@ -56,18 +56,6 @@ Or Add Me In you' Group As "ADMIN"
 𝙰𝚍𝚖𝚒𝚗 𝙸𝚜 𝙽𝚘𝚝 𝚁𝚎𝚜𝚙𝚘𝚗𝚜𝚒𝚋𝚕𝚎 𝙵𝚘𝚛 𝚊𝚗𝚢 𝙳𝚒𝚛𝚎𝚌𝚝 & 𝚒𝚗𝚍𝚒𝚛𝚎𝚌𝚝 𝙿𝚛𝚘𝚏𝚒𝚝 𝚕𝚘𝚜𝚜"""
 
 
-#  I changed my mind 
-#         []
-#     []
-
-# []
-
-
-
-
-
-
-
     BUTTON_TXT = """Help: <b>Buttons</b>
 
 - Meenu Supports both url and alert inline buttons.
