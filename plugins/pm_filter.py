@@ -444,11 +444,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "ddl":
         buttons = [[
-            InlineKeyboardButton('Admin👩‍💻', url='https://t.me/RecallMvbadmin_Bot')
-          ],[
+            InlineKeyboardButton('Admin',url='https://t.me/RecallMvbadmin_Bot')
+        ], [
+            InlineKeyboardButton('Bot Updates', url='https://t.me/uzx_bots'),
+            InlineKeyboardButton('Source', callback_data='source')
+        ], [
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔐 Close', callback_data='close_data')
         ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.ABOUT_TXT.format(temp.B_NAME),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.DIMR.format(query.from_user.mention),
@@ -458,9 +467,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('🍟Bot Updates', url='https://t.me/uzx_bots'),
-            InlineKeyboardButton('🛸Git Source', callback_data='source')
-        ], [
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔐 Close', callback_data='close_data')
         ]]

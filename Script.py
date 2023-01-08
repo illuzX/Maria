@@ -7,19 +7,20 @@ Or Add Me In you' Group As "ADMIN"
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
-•>PROGRAMER:<a href=https://t.me/illuzX3>𝐈𝐥𝐥𝐮𝐳𝕏</a>
-•>LIBRARY: 𝙿Y𝚁𝙾G𝚁A𝙼 2.0.35
-•>LANGUAGE: 𝙿Y𝚃𝙷Ø𝙽 3.8.7
-•>DATABASE: M𝙾𝙽G𝙾 D𝙱
-•>HOSTING: HᴇRᴏᴋᴜ
-•>BASE REPO : <a href=https://github.com/EvamariaTG>Eᴠᴀ Mᴀʀɪᴀ</a>
-•>BUILD VERSION :> 2023.1.8 *BETA</a>
+○ Coded By :<a href=https://t.me/illuzX3>𝐈𝐥𝐥𝐮𝐳𝕏</a>
+○ Library :<a href=https://docs.pyrogram.org/> Pyrogram Asyncio 2.0.93</a>
+○ Language :<a href=https://www.python.org/>python 3.8.9</a>
+○ Hosting :<a herf=https://id.heroku.com/>Heroku </a>
+○ Database :<a herf=https://www.mongodb.com/>Mongo Db</a>
+○ Base Repo :<a href=https://github.com/EvamariaTG>Eva Maria TG</a>
+○ Version :<a href=https://t.me/IlluzX3>2023.1.8 *BETA</a>
+○ Imdb Api :<a href=https://github.com/cinemagoer/cinemagoer>CineMagoer 2022.12.27</a>
 """
     BOT_TXT = """ 
 
 pass"""
 
-    ERROR_MSG"""𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀
+    ERROR_MSG = """𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀
 𝗜𝗗 <b>: {}</b>
 𝗡𝗮𝗺𝗲 <b>: {}</b>
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
