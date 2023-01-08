@@ -19,7 +19,7 @@ Or Add Me In you' Group As "ADMIN"
 
 pass"""
 
-    ERROR_MSG"""<spoiler>𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀</spoiler>
+    ERROR_MSG"""𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀
 𝗜𝗗 <b>: {}</b>
 𝗡𝗮𝗺𝗲 <b>: {}</b>
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
