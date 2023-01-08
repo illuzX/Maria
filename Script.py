@@ -19,6 +19,11 @@ Or Add Me In you' Group As "ADMIN"
     BOT_TXT = """ 
 
 pass"""
+    
+    NORSLTS = """#Erorr
+𝗜𝗗 <b>: {}</b>
+𝗡𝗮𝗺𝗲 <b>: {}</b>
+𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     ERROR_MSG = """𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀
 𝗜𝗗 <b>: {}</b>
