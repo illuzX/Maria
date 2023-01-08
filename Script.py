@@ -13,12 +13,26 @@ Or Add Me In you' Group As "ADMIN"
 •>DATABASE: M𝙾𝙽G𝙾 D𝙱
 •>HOSTING: HᴇRᴏᴋᴜ
 •>BASE REPO : <a href=https://github.com/EvamariaTG>Eᴠᴀ Mᴀʀɪᴀ</a>
-•>BUILD VERSION :> 2022.12.28</a>
+•>BUILD VERSION :> 2023.1.8 *BETA</a>
 """
-    OWN_BOT_TXT = """ <b>How I Own This Bot ? </b>
-    
-- add this bot as a admin in you're group 
-- after you need to send this command in youre group /connect"""
+    BOT_TXT = """ 
+
+pass"""
+
+    ERROR_MSG"""<spoiler>𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀</spoiler>
+𝗜𝗗 <b>: {}</b>
+𝗡𝗮𝗺𝗲 <b>: {}</b>
+𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
+
+
+    ImDb_msg = """ʜᴇʟʟᴏ {} ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏ ᴍᴏᴠɪᴇꜱ ɪɴ ᴛʜᴀᴛ ɴᴀᴍᴇ. 
+ᴍᴏᴠɪᴇ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ 
+➠ ɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ 
+➠ ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ 
+➠ ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ
+➠ ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ 
+ᴇxᴀᴍᴘʟᴇ : PUSHPA 2022 
+🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ' : ( ! , . / "MOVIE")"""
 
     SORCE_TXT = """ 
 
