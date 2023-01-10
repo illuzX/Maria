@@ -7,14 +7,14 @@ Or Add Me In you' Group As "ADMIN"
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
-○ Coded By :<a href=https://t.me/illuzX3>𝐈𝐥𝐥𝐮𝐳𝕏</a>
-○ Library :<a href=https://docs.pyrogram.org/> Pyrogram Asyncio 2.0.93</a>
-○ Language :<a href=https://www.python.org/>python 3.8.9</a>
-○ Hosting :<a herf=https://id.heroku.com/>Heroku </a>
-○ Database :<a herf=https://www.mongodb.com/>Mongo Db</a>
-○ Base Repo :<a href=https://github.com/EvamariaTG>Eva Maria TG</a>
-○ Version :<a href=https://t.me/IlluzX3>2023.1.8 *BETA</a>
-○ Imdb Api :<a href=https://github.com/cinemagoer/cinemagoer>CineMagoer 2022.12.27</a>
+○ <b>Coded By :<a href=https://t.me/illuzX3>𝐈𝐥𝐥𝐮𝐳𝕏</a></b>
+○ <b>Library :<a href=https://docs.pyrogram.org/> Pyrogram Asyncio 2.0.93</a></b>
+○ <b>Language :<a href=https://www.python.org/>python 3.8.9</a></b>
+○ <b>Hosting :<a herf=https://id.heroku.com/>Heroku </a></b>
+○ <b>Database :<a herf=https://www.mongodb.com/>Mongo Db</a></b>
+○ <b>Base Repo :<a href=https://github.com/EvamariaTG>Eva Maria TG</a></b>
+○ <b> Build Version :<a href=https://t.me/IlluzX3>2023.1.10 delta</a></b>
+○ <b>Imdb:<a href=https://github.com/cinemagoer/cinemagoer>CineMagoer 2022.12.27</a></b>
 """
     BOT_TXT = """ 
 
@@ -31,14 +31,14 @@ pass"""
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
 
-    ImDb_msg = """ʜᴇʟʟᴏ {} ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏ ᴍᴏᴠɪᴇꜱ ɪɴ ᴛʜᴀᴛ ɴᴀᴍᴇ. 
-ᴍᴏᴠɪᴇ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ 
-➠ ɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ 
-➠ ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ 
-➠ ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ
-➠ ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ 
-ᴇxᴀᴍᴘʟᴇ : PUSHPA 2022 
-🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ' : ( ! , . / "MOVIE")"""
+    ImDb_msg = """<b>ʜᴇʟʟᴏ {} ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏ ᴍᴏᴠɪᴇꜱ ɪɴ ᴛʜᴀᴛ ɴᴀᴍᴇ. </b>
+<b>⁜ᴍᴏᴠɪᴇ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ</b>
+<b>⁜ɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ</b> 
+<b>⁜ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ </b>
+<b>⁜ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ</b>
+<b>⁜ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ </b>
+<b>⁜ᴇxᴀᴍᴘʟᴇ : PUSHPA 2022</b> 
+"""
 
     SORCE_TXT = """ 
 
