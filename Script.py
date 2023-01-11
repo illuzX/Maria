@@ -13,7 +13,7 @@ Or Add Me In you' Group As "ADMIN"
 ○ <b>Hosting :<a herf=https://id.heroku.com/>Heroku </a></b>
 ○ <b>Database :<a herf=https://www.mongodb.com/>Mongo Db</a></b>
 ○ <b>Base Repo :<a href=https://github.com/EvamariaTG>Eva Maria TG</a></b>
-○ <b> Build Version :<a href=https://t.me/IlluzX3>2023.1.11 F</a></b>
+○ <b> Build Version :<a href=https://t.me/IlluzX3>2023.1.12</a></b>
 ○ <b>Imdb:<a href=https://github.com/cinemagoer/cinemagoer>CineMagoer 2022.12.27</a></b>
 """
     BOT_TXT = """ 
