@@ -981,6 +981,7 @@ async def advantage_spell_chok(client, msg):
         caption=(script.ImDb_msg.format(reqstr.mention)),
         reply_markup=InlineKeyboardMarkup(btn)
         )
+
     try:
         if settings['auto_delete']:
             await asyncio.sleep(600)
@@ -992,7 +993,6 @@ async def advantage_spell_chok(client, msg):
             if settings['auto_delete']:
                 await asyncio.sleep(600)
                 await spell_check_del.delete()
-       
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
@@ -1021,8 +1021,6 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            #await asyncio.sleep(100)
-                            #await rmv.delete()
                     elif btn == "[]":
                         await client.send_cached_media(
                             group_id,
@@ -1038,8 +1036,6 @@ async def manual_filters(client, message, text=False):
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                       # await asyncio.sleep(10)
-                      #  await rm.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
@@ -1064,7 +1060,7 @@ async def global_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            uzX = await client.send_message(
+                            joelkb = await client.send_message(
                                 group_id, 
                                 reply_text, 
                                 disable_web_page_preview=True,
@@ -1073,7 +1069,7 @@ async def global_filters(client, message, text=False):
                             
                         else:
                             button = eval(btn)
-                            uzx2 = await client.send_message(
+                            hmm = await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
@@ -1103,3 +1099,4 @@ async def global_filters(client, message, text=False):
                 break
     else:
         return False
+
