@@ -340,7 +340,6 @@ async def delete(bot, message):
             else:
                 await msg.edit('File not found in database')
 
-
 @Client.on_message(filters.command('deleteall') & filters.user(ADMINS))
 async def delete_all_index(bot, message):
     await message.reply_text(
@@ -368,6 +367,8 @@ async def delete_all_index_confirm(bot, message):
     await Media.collection.drop()
     await message.answer('Piracy Is Crime')
     await message.message.edit('Succesfully Deleted All The Indexed Files.')
+
+
 
 
 @Client.on_message(filters.command('settings'))
@@ -407,6 +408,12 @@ async def settings(client, message):
         return
 
     settings = await get_settings(grp_id)
+    try:
+        if settings['auto_delete']:
+            settings = await get_settings(grp_id)
+    except KeyError:
+        await save_group_settings(grp_id, 'auto_delete', True)
+        settings = await get_settings(grp_id)
 
     if settings is not None:
         buttons = [
@@ -421,14 +428,9 @@ async def settings(client, message):
                 ),
             ],
             [
-                InlineKeyboardButton(
-                    'Bot PM',
-                    callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
-                ),
-                InlineKeyboardButton(
-                    '✅ ON' if settings["botpm"] else '❌ OFF',
-                    callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
-                ),
+                InlineKeyboardButton('Bot PM', callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}'),
+                InlineKeyboardButton('✅ ON' if settings["botpm"] else '❌ OFF',
+                    callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}')
             ],
             [
                 InlineKeyboardButton(
@@ -436,7 +438,7 @@ async def settings(client, message):
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ ON' if settings["file_secure"] else '❌ OFF',
+                    '✅ Yes' if settings["file_secure"] else '❌ No',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
             ],
@@ -446,7 +448,7 @@ async def settings(client, message):
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ ON' if settings["imdb"] else '❌ OFF',
+                    '✅ Yes' if settings["imdb"] else '❌ No',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
             ],
@@ -456,7 +458,7 @@ async def settings(client, message):
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ ON' if settings["spell_check"] else '❌ OFF',
+                    '✅ Yes' if settings["spell_check"] else '❌ No',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
             ],
@@ -466,8 +468,18 @@ async def settings(client, message):
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ ON' if settings["welcome"] else '❌ No',
+                    '✅ Yes' if settings["welcome"] else '❌ No',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    'Auto Delete',
+                    callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{grp_id}',
+                ),
+                InlineKeyboardButton(
+                    '10 Mins' if settings["auto_delete"] else 'OFF',
+                    callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{grp_id}',
                 ),
             ],
         ]
@@ -481,8 +493,6 @@ async def settings(client, message):
             parse_mode=enums.ParseMode.HTML,
             reply_to_message_id=message.id
         )
-
-
 
 @Client.on_message(filters.command('set_template'))
 async def save_template(client, message):
@@ -526,3 +536,31 @@ async def save_template(client, message):
     template = message.text.split(" ", 1)[1]
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
+
+
+    @Client.on_message(filters.command("send") & filters.user(ADMINS))
+async def send_msg(bot, message):
+    if message.reply_to_message:
+        target_id = message.text.split(" ", 1)[1]
+        out = "Users Saved In DB Are:\n\n"
+        success = False
+        try:
+            user = await bot.get_users(target_id)
+            users = await db.get_all_users()
+            async for usr in users:
+                out += f"{usr['id']}"
+                out += '\n'
+            if str(user.id) in str(out):
+                await message.reply_to_message.copy(int(user.id))
+                success = True
+            else:
+                success = False
+            if success:
+                await message.reply_text(f"<b>Your message has been successfully send to {user.mention}.</b>")
+            else:
+                await message.reply_text("<b>This user didn't started this bot yet !</b>")
+        except Exception as e:
+            await message.reply_text(f"<b>Error: {e}</b>")
+    else:
+        await message.reply_text("<b>Use this command as a reply to any message using the target chat id. For eg: /send userid</b>")
+
