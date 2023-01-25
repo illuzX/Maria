@@ -7,7 +7,8 @@ from Script import script
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
-from info import *
+from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -19,10 +20,6 @@ from database.filters_mdb import (
     find_filter,
     get_filters,
 )
-from database.globfilter_udb import (
-    find_gfilter,
-    get_gfilters,
-)
 import logging
 
 logger = logging.getLogger(__name__)
@@ -30,80 +27,13 @@ logger.setLevel(logging.ERROR)
 
 BUTTONS = {}
 SPELL_CHECK = {}
-FILTER_MODE = {}
 
 
-@Client.on_message(filters.command('autofilter'))
-async def fil_mod(client, message): 
-      mode_on = ["yes", "on", "true"]
-      mode_of = ["no", "off", "false"]
-
-      try: 
-         args = message.text.split(None, 1)[1].lower() 
-      except: 
-         return await message.reply("**𝙸𝙽𝙲𝙾𝙼𝙿𝙴𝚃𝙴𝙽𝚃 𝙲𝙾𝙼𝙼𝙰𝙳...**")
-      
-      m = await message.reply("**𝚂𝙴𝚃𝚃𝙸𝙽𝙶.../**")
-
-      if args in mode_on:
-          FILTER_MODE[str(message.chat.id)] = "True" 
-          await m.edit("**𝙰𝚄𝚃𝙾𝙵𝙸𝙻𝚃𝙴𝚁 𝙴𝙽𝙰𝙱𝙻𝙴𝙳**")
-      
-      elif args in mode_of:
-          FILTER_MODE[str(message.chat.id)] = "False"
-          await m.edit("**𝙰𝚄𝚃𝙾𝙵𝙸𝙻𝚃𝙴𝚁 𝙳𝙸𝚂𝙰𝙱𝙻𝙴𝙳**")
-      else:
-          await m.edit("𝚄𝚂𝙴 :- /autofilter on 𝙾𝚁 /autofilter off")
-
-
-@Client.on_message((filters.group | filters.private) & filters.text & filters.incoming)
-async def give_filter(client,message):
-    await global_filters(client, message)
-    group_id = message.chat.id
-    name = message.text
-
-    keywords = await get_filters(group_id)
-    for keyword in reversed(sorted(keywords, key=len)):
-        pattern = r"( |^|[^\w])" + re.escape(keyword) + r"( |$|[^\w])"
-        if re.search(pattern, name, flags=re.IGNORECASE):
-            reply_text, btn, alert, fileid = await find_filter(group_id, keyword)
-
-            if reply_text:
-                reply_text = reply_text.replace("\\n", "\n").replace("\\t", "\t")
-
-            if btn is not None:
-                try:
-                    if fileid == "None":
-                        if btn == "[]":
-                            await message.reply_text(reply_text, disable_web_page_preview=True)
-                        else:
-                            button = eval(btn)
-                            await message.reply_text(
-                                reply_text,
-                                disable_web_page_preview=True,
-                                reply_markup=InlineKeyboardMarkup(button)
-                            )
-                    elif btn == "[]":
-                        await message.reply_cached_media(
-                            fileid,
-                            caption=reply_text or ""
-                        )
-                    else:
-                        button = eval(btn) 
-                        await message.reply_cached_media(
-                            fileid,
-                            caption=reply_text or "",
-                            reply_markup=InlineKeyboardMarkup(button)
-                        )
-                except Exception as e:
-                    print(e)
-                break 
-
-    else:
-        if FILTER_MODE.get(str(message.chat.id)) == "False":
-            return
-        else:
-            await auto_filter(client, message)
+@Client.on_message(filters.group & filters.text & filters.incoming)
+async def give_filter(client, message):
+    k = await manual_filters(client, message)
+    if k == False:
+        await auto_filter(client, message)
 
 
 @Client.on_callback_query(filters.regex(r"^next"))
@@ -146,19 +76,6 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
-    btn.insert(0, 
-        [
-            InlineKeyboardButton(f' 📂 {search} 📂 ', 'qinfo')
-        ]
-    )
-    btn.insert(1, 
-         [
-             InlineKeyboardButton(f'Info 📃', 'reqinfo'),
-             InlineKeyboardButton(f'Movie 🎞 ', 'minfo'),
-             InlineKeyboardButton(f'Series 🎁 ', 'sinfo'),
-             InlineKeyboardButton(f'Tips 🥴 ', 'tinfo')
-         ]
-    )
 
     if 0 < offset <= 10:
         off_set = 0
@@ -193,18 +110,18 @@ async def next_page(bot, query):
     await query.answer()
 
 
-@Client.on_callback_query(filters.regex(r"^spol"))
+@Client.on_callback_query(filters.regex(r"^spolling"))
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
-    movies = SPELL_CHECK.get(query.message.reply_to_message.id)
-    if not movies:
-        return await query.answer(script.OLD_ALRT_TXT.format(query.from_user.first_name), show_alert=True)
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer(script.ALRT_TXT.format(query.from_user.first_name),show_alert=True)
+        return await query.answer("Mhan ❤️ Thats Not for you",show_alert=True)
     if movie_ == "close_spellcheck":
         return await query.message.delete()
+    movies = SPELL_CHECK.get(query.message.reply_to_message.id)
+    if not movies:
+        return await query.answer("You are clicking on an old button which is expired.", show_alert=True)
     movie = movies[(int(movie_))]
-    await query.answer(script.TOP_ALRT_MSG)
+    await query.answer('Checking for Movie in database...')
     k = await manual_filters(bot, query.message, text=movie)
     if k == False:
         files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
@@ -212,12 +129,10 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            reqstr1 = query.from_user.id if query.from_user else 0
-            reqstr = await bot.get_users(reqstr1)
-            await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
-            k = await query.message.edit(script.MVE_NT_FND)
-            await asyncio.sleep(10)
+            k = await query.message.edit('Movie Not Found In DataBase Or This Is Not The Name Of Movie Please Check Google Or {search} not Released in OTT')
+            await asyncio.sleep(60)
             await k.delete()
+
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -483,18 +398,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "pages":
         await query.answer()
-
-    elif query.data == "reqinfo":
-        await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nᴀꜰᴛᴇʀ 10 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\nɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ❣", show_alert=True)
-
-    elif query.data == "minfo":
-        await query.answer("⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\nᴍᴏᴠɪᴇ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ\n⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\n\nɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ ➠ ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ➠ ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ ➠ ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ\n\nᴇxᴀᴍᴘʟᴇ : ᴀᴠᴀᴛᴀʀ: ᴛʜᴇ ᴡᴀʏ ᴏғ ᴡᴀᴛᴇʀ🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)", show_alert=True)
-
-    elif query.data == "sinfo":
-        await query.answer("⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\nꜱᴇʀɪᴇꜱ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ\n⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\n\nɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ ➠ ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ➠ ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ ➠ ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ\n\nᴇxᴀᴍᴘʟᴇ : ᴍᴏɴᴇʏ ʜᴇɪsᴛ S01E01🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)", show_alert=True)      
-
-    elif query.data == "tinfo":
-        await query.answer("▣ ᴛɪᴘs ▣\n\n★ ᴛʏᴘᴇ ᴄᴏʀʀᴇᴄᴛ sᴘᴇʟʟɪɴɢ (ɢᴏᴏɢʟᴇ)\n\n★ ɪғ ʏᴏᴜ ɴᴏᴛ ɢᴇᴛ ʏᴏᴜʀ ғɪʟᴇ ɪɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ᴛʜᴇɴ ᴛʜᴇ ɴᴇxᴛ sᴛᴇᴘ ɪs ᴄʟɪᴄᴋ ɴᴇxᴛ ʙᴜᴛᴛᴏɴ.\n\n★ ᴄᴏɴᴛɪɴᴜᴇ ᴛʜɪs ᴍᴇᴛʜᴏᴅ ᴛᴏ ɢᴇᴛᴛɪɴɢ ʏᴏᴜ ғɪʟᴇ", show_alert=True)
     elif query.data == "start":
       # f1 = await query.message.reply_text("Hy..")
       # await asyncio.sleep(5)
@@ -541,20 +444,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "ddl":
         buttons = [[
-            InlineKeyboardButton('Admin',url='https://t.me/RecallMvbadmin_Bot')
-        ], [
-            InlineKeyboardButton('Bot Updates', url='https://t.me/uzx_bots'),
-            InlineKeyboardButton('Source', callback_data='source')
-        ], [
+            InlineKeyboardButton('Admin👩‍💻', url='https://t.me/RecallMvbadmin_Bot')
+          ],[
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔐 Close', callback_data='close_data')
         ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.ABOUT_TXT.format(temp.B_NAME),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.DIMR.format(query.from_user.mention),
@@ -564,6 +458,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             
     elif query.data == "about":
         buttons = [[
+            InlineKeyboardButton('🍟Bot Updates', url='https://t.me/uzx_bots'),
+            InlineKeyboardButton('🛸Git Source', callback_data='source')
+        ], [
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔐 Close', callback_data='close_data')
         ]]
@@ -664,7 +561,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-
     elif query.data == "rfrsh":
         await query.answer("nikk njan nokkate 😬")
         buttons = [[
@@ -684,15 +580,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-
-
     elif query.data.startswith("setgs"):
         ident, set_type, status, grp_id = query.data.split("#")
         grpid = await active_connection(str(query.from_user.id))
 
         if str(grp_id) != str(grpid):
             await query.message.edit("Your Active Connection Has Been Changed. Go To /settings.")
-            return await query.answer(MSG_ALRT)
+            return await query.answer('Prosessing...Request')
 
         if status == "True":
             await save_group_settings(grpid, set_type, False)
@@ -700,12 +594,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await save_group_settings(grpid, set_type, True)
 
         settings = await get_settings(grpid)
-        try:
-            if settings['auto_delete']:
-                settings = await get_settings(grp_id)
-        except KeyError:
-            await save_group_settings(grp_id, 'auto_delete', True)
-            settings = await get_settings(grp_id)
 
         if settings is not None:
             buttons = [
@@ -723,39 +611,31 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 [
                     InlineKeyboardButton('File Secure',
                                          callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["file_secure"] else '❌ No',
+                    InlineKeyboardButton('✅ ON' if settings["file_secure"] else '❌ OFF',
                                          callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}')
                 ],
                 [
                     InlineKeyboardButton('IMDB', callback_data=f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["imdb"] else '❌ No',
+                    InlineKeyboardButton('✅ ON' if settings["imdb"] else '❌ OFF',
                                          callback_data=f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}')
                 ],
                 [
                     InlineKeyboardButton('Spell Check',
                                          callback_data=f'setgs#spell_check#{settings["spell_check"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["spell_check"] else '❌ No',
+                    InlineKeyboardButton('✅ ON' if settings["spell_check"] else '❌ OFF',
                                          callback_data=f'setgs#spell_check#{settings["spell_check"]}#{str(grp_id)}')
                 ],
                 [
                     InlineKeyboardButton('Welcome', callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["welcome"] else '❌ No',
+                    InlineKeyboardButton('✅ ON' if settings["welcome"] else '❌ OFF',
                                          callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}')
-                ],
-                [
-                    InlineKeyboardButton('Auto Delete',
-                                         callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('10 Mins' if settings["auto_delete"] else 'OFF',
-                                         callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{str(grp_id)}')
                 ]
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
-    await query.answer(MSG_ALRT)
+    await query.answer('Prosessing...Request')
 
 async def auto_filter(client, msg, spoll=False):
-    reqstr1 = msg.from_user.id if msg.from_user else 0
-    reqstr = await client.get_users(reqstr1)
     if not spoll:
         message = msg
         settings = await get_settings(message.chat.id)
@@ -767,9 +647,8 @@ async def auto_filter(client, msg, spoll=False):
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
                 if settings["spell_check"]:
-                    return await advantage_spell_chok(client, msg)
+                    return await advantage_spell_chok(msg)
                 else:
-                    await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
                     return
         else:
             return
@@ -797,19 +676,6 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-    btn.insert(0, 
-        [
-            InlineKeyboardButton(f' 📂 {search} 📂', 'qinfo')
-        ]
-    )
-    btn.insert(1, 
-         [
-             InlineKeyboardButton(f'Info 📃 ', 'reqinfo'),
-             InlineKeyboardButton(f'Movie 🎞 ', 'minfo'),
-             InlineKeyboardButton(f'Series 🎁 ', 'sinfo'),
-             InlineKeyboardButton(f'Tips 🥴 ', 'tinfo')
-         ]
-    )
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
@@ -861,139 +727,76 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"Here is what i found for your query <spoiler>**{search}**</spoiler>"
     if imdb and imdb.get('poster'):
         try:
-            pic_fi=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
+            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
-            try:
-                if settings['auto_delete']:
-                    await asyncio.sleep(600)
-                    await pic_fi.delete()
-                    await message.delete()
-            except KeyError:
-                grpid = await active_connection(str(message.from_user.id))
-                await save_group_settings(grpid, 'auto_delete', True)
-                settings = await get_settings(message.chat.id)
-                if settings['auto_delete']:
-                    await asyncio.sleep(600)
-                    await pic_fi.delete()
-                    await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            pic_fil=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            try:
-                if settings['auto_delete']:
-                    await asyncio.sleep(600)
-                    await pic_fil.delete()
-                    await message.delete()
-            except KeyError:
-                grpid = await active_connection(str(message.from_user.id))
-                await save_group_settings(grpid, 'auto_delete', True)
-                settings = await get_settings(message.chat.id)
-                if settings['auto_delete']:
-                    await asyncio.sleep(600)
-                    await pic_fil.delete()
-                    await message.delete()
+            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
         except Exception as e:
             logger.exception(e)
-            no_pic=await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            try:
-                if settings['auto_delete']:
-                    await asyncio.sleep(600)
-                    await no_pic.delete()
-                    await message.delete()
-            except KeyError:
-                grpid = await active_connection(str(message.from_user.id))
-                await save_group_settings(grpid, 'auto_delete', True)
-                settings = await get_settings(message.chat.id)
-                if settings['auto_delete']:
-                    await asyncio.sleep(600)
-                    await no_pic.delete()
-                    await message.delete()
+            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     else:
-        no_fil=await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-        try:
-            if settings['auto_delete']:
-                await asyncio.sleep(600)
-                await no_fil.delete()
-                await message.delete()
-        except KeyError:
-            grpid = await active_connection(str(message.from_user.id))
-            await save_group_settings(grpid, 'auto_delete', True)
-            settings = await get_settings(message.chat.id)
-            if settings['auto_delete']:
-                await asyncio.sleep(600)
-                await no_fil.delete()
-                await message.delete()
+        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
         
 
 
-async def advantage_spell_chok(client, msg):
-    mv_id = msg.id
-    mv_rqst = msg.text
-    reqstr1 = msg.from_user.id if msg.from_user else 0
-    reqstr = await client.get_users(reqstr1)
-    settings = await get_settings(msg.chat.id)
+async def advantage_spell_chok(msg):
     query = re.sub(
         r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|br((o|u)h?)*|^h(e|a)?(l)*(o)*|mal(ayalam)?|t(h)?amil|file|that|find|und(o)*|kit(t(i|y)?)?o(w)?|thar(u)?(o)*w?|kittum(o)*|aya(k)*(um(o)*)?|full\smovie|any(one)|with\ssubtitle(s)?)",
         "", msg.text, flags=re.IGNORECASE)  # plis contribute some common words
-    RQST = query.strip()
     query = query.strip() + " movie"
-    try:
-        movies = await get_poster(mv_rqst, bulk=True)
-    except Exception as e:
-        logger.exception(e)
-        await client.send_message(chat_id=LOG_CHANNEL, text=(script.ERROR_MSG.format(reqstr.id, reqstr.mention, mv_rqst)))
-        k = await msg.reply(script.ImDb_msg.format(reqstr.mention))
-        await asyncio.sleep(8)
+    g_s = await search_gagala(query)
+    g_s += await search_gagala(msg.text)
+    gs_parsed = []
+    if not g_s:
+        k = await msg.reply("I couldn't find any movie in that name")
+        await asyncio.sleep(40)
         await k.delete()
         return
-    movielist = [] #error fixed
-    if not movies:
-        reqst_gle = mv_rqst.replace(" ", "+")
-        button = [[
-                   InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
-        ]]
-        await client.send_message(chat_id=LOG_CHANNEL, text=(script.ERROR_MSG.format(reqstr.id, reqstr.mention, mv_rqst)))
-        k = await msg.reply_photo(
-            photo=SPELL_IMG, 
-            caption=script.ImDb_msg.format(mv_rqst),
-            reply_markup=InlineKeyboardMarkup(button)
-        )
-        await asyncio.sleep(30)
+    regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
+    gs = list(filter(regex.match, g_s))
+    gs_parsed = [re.sub(
+        r'\b(\-([a-zA-Z-\s])\-\simdb|(\-\s)?imdb|(\-\s)?wikipedia|\(|\)|\-|reviews|full|all|undo|episode(s)?|film|movie|series)',
+        '', i, flags=re.IGNORECASE) for i in gs]
+    if not gs_parsed:
+        reg = re.compile(r"watch(\s[a-zA-Z0-9_\s\-\(\)]*)*\|.*",
+                         re.IGNORECASE)  # match something like Watch Niram | Amazon Prime
+        for mv in g_s:
+            match = reg.match(mv)
+            if match:
+                gs_parsed.append(match.group(1))
+    user = msg.from_user.id if msg.from_user else 0
+    movielist = []
+    gs_parsed = list(dict.fromkeys(gs_parsed))  # removing duplicates https://stackoverflow.com/a/7961425
+    if len(gs_parsed) > 3:
+        gs_parsed = gs_parsed[:3]
+    if gs_parsed:
+        for mov in gs_parsed:
+            imdb_s = await get_poster(mov.strip(), bulk=True)  # searching each keyword in imdb
+            if imdb_s:
+                movielist += [movie.get('title') for movie in imdb_s]
+    movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
+    movielist = list(dict.fromkeys(movielist))  # removing duplicates
+    if not movielist:
+        k = await msg.reply("I couldn't find anything related to that. Check your spelling\n\nഎനിക്ക് അതുമായി ബന്ധപ്പെട്ട ഒന്നും കണ്ടെത്താൻ കഴിഞ്ഞില്ല. നിങ്ങളുടെ അക്ഷരവിന്യാസം പരിശോധിക്കുക")
+        await asyncio.sleep(5)
         await k.delete()
         return
-    movielist += [movie.get('title') for movie in movies]
-    movielist += [f"{movie.get('title')} {movie.get('year')}" for movie in movies]
-    SPELL_CHECK[mv_id] = movielist
-    btn = [
-        [
-            InlineKeyboardButton(
-                text=movie_name.strip(),
-                callback_data=f"spol#{reqstr1}#{k}",
-            )
-        ]
-        for k, movie_name in enumerate(movielist)
-    ]
-    btn.append([InlineKeyboardButton(text="Close", callback_data=f'spol#{reqstr1}#close_spellcheck')])
-    spell_check_del = await msg.reply_photo(
-        photo=(SPELL_IMG),
-        caption=(script.ImDb_msg.format(reqstr.mention)),
-        reply_markup=InlineKeyboardMarkup(btn)
+    SPELL_CHECK[msg.id] = movielist
+    btn = [[
+        InlineKeyboardButton(
+            text=movie.strip(),
+            callback_data=f"spolling#{user}#{k}",
         )
+    ] for k, movie in enumerate(movielist)]
+    btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
+    ub=await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?",
+                    reply_markup=InlineKeyboardMarkup(btn))
 
-    try:
-        if settings['auto_delete']:
-            await asyncio.sleep(600)
-            await spell_check_del.delete()
-    except KeyError:
-            grpid = await active_connection(str(message.from_user.id))
-            await save_group_settings(grpid, 'auto_delete', True)
-            settings = await get_settings(message.chat.id)
-            if settings['auto_delete']:
-                await asyncio.sleep(600)
-                await spell_check_del.delete()
+       
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
@@ -1022,6 +825,8 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
+                            #await asyncio.sleep(100)
+                            #await rmv.delete()
                     elif btn == "[]":
                         await client.send_cached_media(
                             group_id,
@@ -1037,64 +842,8 @@ async def manual_filters(client, message, text=False):
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                except Exception as e:
-                    logger.exception(e)
-                break
-    else:
-        return False
-
-async def global_filters(client, message, text=False):
-    settings = await get_settings(message.chat.id)
-    group_id = message.chat.id
-    name = text or message.text
-    reply_id = message.reply_to_message.id if message.reply_to_message else message.id
-    keywords = await get_gfilters('gfilters')
-    for keyword in reversed(sorted(keywords, key=len)):
-        pattern = r"( |^|[^\w])" + re.escape(keyword) + r"( |$|[^\w])"
-        if re.search(pattern, name, flags=re.IGNORECASE):
-            reply_text, btn, alert, fileid = await find_gfilter('gfilters', keyword)
-
-            if reply_text:
-                reply_text = reply_text.replace("\\n", "\n").replace("\\t", "\t")
-
-            if btn is not None:
-                try:
-                    if fileid == "None":
-                        if btn == "[]":
-                            joelkb = await client.send_message(
-                                group_id, 
-                                reply_text, 
-                                disable_web_page_preview=True,
-                                reply_to_message_id=reply_id
-                            )
-                            
-                        else:
-                            button = eval(btn)
-                            hmm = await client.send_message(
-                                group_id,
-                                reply_text,
-                                disable_web_page_preview=True,
-                                reply_markup=InlineKeyboardMarkup(button),
-                                reply_to_message_id=reply_id
-                            )
-
-                    elif btn == "[]":
-                        oto = await client.send_cached_media(
-                            group_id,
-                            fileid,
-                            caption=reply_text or "",
-                            reply_to_message_id=reply_id
-                        )
-
-                    else:
-                        button = eval(btn)
-                        dlt = await message.reply_cached_media(
-                            fileid,
-                            caption=reply_text or "",
-                            reply_markup=InlineKeyboardMarkup(button),
-                            reply_to_message_id=reply_id
-                        )
-
+                       # await asyncio.sleep(10)
+                      #  await rm.delete()
                 except Exception as e:
                     logger.exception(e)
                 break

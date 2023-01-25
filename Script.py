@@ -7,23 +7,15 @@ Or Add Me In you' Group As "ADMIN"
     HELP_TXT = """𝙷𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂"""
     ABOUT_TXT = """
-○ <b>Coded By :<a href=https://t.me/illuzX3>𝐈𝐥𝐥𝐮𝐳𝕏</a></b>
-○ <b>Library :<a href=https://docs.pyrogram.org/> Pyrogram Asyncio 2.0.93</a></b>
-○ <b>Language :<a href=https://www.python.org/>python 3.8.9</a></b>
-○ <b>Hosting :<a herf=https://id.heroku.com/>Heroku </a></b>
-○ <b>Database :<a herf=https://www.mongodb.com/>Mongo Db</a></b>
-○ <b>Base Repo :<a href=https://github.com/EvamariaTG>Eva Maria TG</a></b>
-○ <b>Imdb:<a href=https://github.com/cinemagoer/cinemagoer>CineMagoer 2022.12.27</a></b>
-○ <b>Build Version :<a href=https://t.me/IlluzX3>2023.1.25</a></b> """
-
+• <b>CØD BY : <a href=https://t.me/illuzX3>𝐈𝐥𝐥𝐮𝐳𝕏</a></b>
+• <b>LIB : 𝙿Y𝚁𝙾G𝚁A𝙼 2.0.35</b>
+• <b>LANGUAGE : 𝙿Y𝚃𝙷Ø𝙽 3.8.7</b>
+• <b>REPO : <a href=https://github.com/EvamariaTG>Click Me</a></b>
+• <b>BOT-VERSION : <a href=https://t.me/MeenukuttyRobot>2022.12.24</a></b>
+"""
     BOT_TXT = """ 
 
 pass"""
-    
-    NORSLTS = """#Erorr
-𝗜𝗗 <b>: {}</b>
-𝗡𝗮𝗺𝗲 <b>: {}</b>
-𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     ERROR_MSG = """𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀
 𝗜𝗗 <b>: {}</b>
@@ -31,14 +23,14 @@ pass"""
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
 
-    ImDb_msg = """<b>ʜᴇʟʟᴏ {} ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏ ᴍᴏᴠɪᴇꜱ ɪɴ ᴛʜᴀᴛ ɴᴀᴍᴇ. </b>
-<b>⁜ᴍᴏᴠɪᴇ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ</b>
-<b>⁜ɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ</b> 
-<b>⁜ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ </b>
-<b>⁜ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ</b>
-<b>⁜ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ </b>
-<b>⁜ᴇxᴀᴍᴘʟᴇ : PUSHPA 2022</b> 
-"""
+    ImDb_msg = """ʜᴇʟʟᴏ {} ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏ ᴍᴏᴠɪᴇꜱ ɪɴ ᴛʜᴀᴛ ɴᴀᴍᴇ. 
+ᴍᴏᴠɪᴇ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ 
+➠ ɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ 
+➠ ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ 
+➠ ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ
+➠ ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ 
+ᴇxᴀᴍᴘʟᴇ : PUSHPA 2022 
+🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ' : ( ! , . / "MOVIE")"""
 
     SORCE_TXT = """ 
 
@@ -152,6 +144,3 @@ Added By - {}
 ID - <code>{}</code>
 Name - {}
 """
-    TOP_ALRT_MSG = """♻️ ᴄʜᴇᴄᴋɪɴɢ ꜰɪʟᴇ ᴏɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ... ♻️"""
-    ALRT_TXT = """This is not for you 😁"""
-    OLD_ALRT_TXT = """𝐘𝐨𝐮 𝐚𝐫𝐞 𝐮𝐬𝐢𝐧𝐠 𝐨𝐧𝐞 𝐨𝐟 𝐦𝐲 𝐨𝐥𝐝 𝐦𝐞𝐬𝐬𝐚𝐠𝐞𝐬, 𝐩𝐥𝐞𝐚𝐬𝐞 𝐬𝐞𝐧𝐝 𝐭𝐡𝐞 𝐫𝐞𝐪𝐮𝐞𝐬𝐭 𝐚𝐠𝐚𝐢𝐧 """
