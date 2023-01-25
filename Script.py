@@ -13,9 +13,9 @@ Or Add Me In you' Group As "ADMIN"
 ○ <b>Hosting :<a herf=https://id.heroku.com/>Heroku </a></b>
 ○ <b>Database :<a herf=https://www.mongodb.com/>Mongo Db</a></b>
 ○ <b>Base Repo :<a href=https://github.com/EvamariaTG>Eva Maria TG</a></b>
-○ <b> Build Version :<a href=https://t.me/IlluzX3>2023.1.12</a></b>
 ○ <b>Imdb:<a href=https://github.com/cinemagoer/cinemagoer>CineMagoer 2022.12.27</a></b>
-"""
+○ <b>Build Version :<a href=https://t.me/IlluzX3>2023.1.25</a></b> """
+
     BOT_TXT = """ 
 
 pass"""
@@ -152,3 +152,6 @@ Added By - {}
 ID - <code>{}</code>
 Name - {}
 """
+    TOP_ALRT_MSG = """♻️ ᴄʜᴇᴄᴋɪɴɢ ꜰɪʟᴇ ᴏɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ... ♻️"""
+    ALRT_TXT = """This is not for you 😁"""
+    OLD_ALRT_TXT = """𝐘𝐨𝐮 𝐚𝐫𝐞 𝐮𝐬𝐢𝐧𝐠 𝐨𝐧𝐞 𝐨𝐟 𝐦𝐲 𝐨𝐥𝐝 𝐦𝐞𝐬𝐬𝐚𝐠𝐞𝐬, 𝐩𝐥𝐞𝐚𝐬𝐞 𝐬𝐞𝐧𝐝 𝐭𝐡𝐞 𝐫𝐞𝐪𝐮𝐞𝐬𝐭 𝐚𝐠𝐚𝐢𝐧 """
