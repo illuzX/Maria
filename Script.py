@@ -24,6 +24,12 @@ Or Add Me In you' Group As "ADMIN"
 𝗡𝗮𝗺𝗲 <b>: {}</b>
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
+    SUR_TXT = """ Hai 👋🏻 {}\t
+my name is <a href=https://t.me/{}>{}</a>, I Can provide Movies,Series and more for you  
+To get movies or Series  U must need to join My Group!\n
+Or Add Me In you' Group As "ADMIN"   
+ᴍᴀɪɴᴛᴀɪɴɪɴɢ : <a href=https://t.me/uzx_bots>Uᴢ𝕏 ʙᴏᴛs</a>"""
+
 
     ImDb_msg = """Hello {} I can't Find This Movie In My Database\n Or Not Relesed In Ott Platfroms\n If This Movie Is Available In Some Whare! our team will Be add bot db soon as possible !"""
 
