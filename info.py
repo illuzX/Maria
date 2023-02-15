@@ -40,6 +40,7 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/mvbzzer")
 FILE_FORWARD = environ.get('FILE_FORWARD',"https://uzx_bots")
+SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 MSG_ALRT = environ.get('MSG_ALRT', 'LOodInG...⏳')
 FILE_CHANNEL = int(environ.get('FILE_CHANNEL', 0))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'TeamEvamaria')
