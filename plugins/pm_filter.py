@@ -19,6 +19,10 @@ from database.filters_mdb import (
     find_filter,
     get_filters,
 )
+from database.gfilters_mdb import (
+    find_gfilter,
+    get_gfilters,
+)
 import logging
 
 logger = logging.getLogger(__name__)
