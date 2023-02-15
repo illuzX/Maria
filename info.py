@@ -38,7 +38,10 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
-MSG_ALRT = environ.get('MSG_ALRT', '𝑪𝑯𝑬𝑪𝑲 & 𝑻𝑹𝒀 𝑨𝑳𝑳 𝑴𝒀 𝑭𝑬𝑨𝑻𝑼𝑹𝑬𝑺')
+MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/mvbzzer")
+FILE_FORWARD = environ.get('FILE_FORWARD',"https://uzx_bots")
+MSG_ALRT = environ.get('MSG_ALRT', 'LOodInG...⏳')
+FILE_CHANNEL = int(environ.get('FILE_CHANNEL', 0))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'TeamEvamaria')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "True")), True)

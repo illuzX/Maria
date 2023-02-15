@@ -13,37 +13,23 @@ Or Add Me In you' Group As "ADMIN"
 • <b>REPO : <a href=https://github.com/EvamariaTG>Click Me</a></b>
 • <b>BOT-VERSION : <a href=https://t.me/MeenukuttyRobot>2022.12.24</a></b>
 """
-    BOT_TXT = """ 
+    ALRT_TXT = """This Not For You🥴"""
 
-pass"""
+    TOP_ALRT_MSG = """♻️ ᴄʜᴇᴄᴋɪɴɢ ꜰɪʟᴇ ᴏɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ... ♻️"""
 
-    ERROR_MSG = """𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀
+    MVE_NT_FND = """<b>ᴛʜɪꜱ ᴍᴏᴠɪᴇ ɪꜱ ɴᴏᴛ ʏᴇᴛ  ʀᴇʟᴇᴀꜱᴇᴅ ᴏʀ ᴀᴅᴅᴇᴅ ᴛᴏ ᴅᴀᴛᴀʙᴀꜱᴇ</b> """
+
+    NO_RSL = """𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀
 𝗜𝗗 <b>: {}</b>
 𝗡𝗮𝗺𝗲 <b>: {}</b>
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
 
-    ImDb_msg = """ʜᴇʟʟᴏ {} ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏ ᴍᴏᴠɪᴇꜱ ɪɴ ᴛʜᴀᴛ ɴᴀᴍᴇ. 
-ᴍᴏᴠɪᴇ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ 
-➠ ɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ 
-➠ ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ 
-➠ ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ
-➠ ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ 
-ᴇxᴀᴍᴘʟᴇ : PUSHPA 2022 
-🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ' : ( ! , . / "MOVIE")"""
+    ImDb_msg = """Hello {} I can't Find This Movie In My Database\n Or Not Relesed In Ott Platfroms\n If This Movie Is Available In Some Whare! our team will Be add bot db soon as possible !"""
 
     SORCE_TXT = """ 
 
-- Soon Update Here 
 - @uzx_bots you can find here ask """
-
-    SETTINGS_CMD = """<b>settings:</b>
-- use /settings command in bot pm !
-- configure bot in you're group how want to perform 
-- if no need imdb filter picture then turn off it !
-- double button filter button no more works ! 
-- this settings module rest every day so note it"""
-
 
     MANUELFILTER_TXT = """Help: <b>Filters</b>
     
