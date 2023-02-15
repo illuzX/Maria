@@ -44,6 +44,7 @@ MSG_ALRT = environ.get('MSG_ALRT', 'LOodInG...⏳')
 FILE_CHANNEL = int(environ.get('FILE_CHANNEL', 0))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'TeamEvamaria')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
+DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-1001807888140').split()]
 IMDB = is_enabled((environ.get('IMDB', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "False")), False)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", None)
