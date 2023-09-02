@@ -16,6 +16,9 @@ from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 
+from plugins import web_server 
+from aiohttp import web
+
 class Bot(Client):
 
     def __init__(self):
@@ -42,10 +45,16 @@ class Bot(Client):
         self.username = '@' + me.username
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
         logging.info(LOG_STR)
-
+        if WEBHOOK is True:
+            app = web.AppRunner(await web_server())
+            await app.setup()
+            await web.TCPSite(app, "0.0.0.0", 8080).start()
+            logger.info("Web Response Is Running......🕸️")
+            
     async def stop(self, *args):
         await super().stop()
-        logging.info("Bot stopped. Bye.")
+        me = await self.get_me()
+        logger.info(f"{me.first_name} is_...  ♻️Restarting...")
     
     async def iter_messages(
         self,
